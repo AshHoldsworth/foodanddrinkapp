@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Chicken Burger",
+        "lowerCaseName": "chickenburger",
+        "description": "Well seasoned chicken breast fillet between a fresh bun, garnished by fresh salad.",
+        "mealType": "evening",
+        "courseType": "main",
+        "calories": 500,
+        "ingredients": [
+            "chicken",
+            "bun",
+            "lettuce",
+            "tomato",
+            "mayonnaise"
+        ],
+        "isTreat": false,
+        "isDessert": false,
+        "cost": 1,
+        "timeToPrepare": "quick",
+        "difficulty": 1,
+        "method": [
+            "Preheat either with an over or a cast iron grill.",
+            "Either flatten or butterfly a chicken breast fillet.",
+            "Season the chicken well with your choice of spices. I recommend salt, pepper, garlic powder and paprika.",
+            "Start cooking the chicken",
+            "Start preparing your salad. Shred the lettuce and slice the tomatoes. Add any other type of salad you want!",
+            "Slice your bun in half whilst you wait. This is also a good time to clean up your chopping board and knife.",
+            "Flip your chicken over once it is half-way cooked. Add more seasoning if you wish.",
+            "Once your chicken has finished cooking, take it off the heat and leave it to rest.",
+            "Use your chosen cooking appliance to toast your buns. Keep an eye on them to ensure they don't burn.",
+            "Once your buns have toasted remove them from the heat and leave them to cool.",
+            "Once cooled, start building your burger. Don't forget to add the mayonnaise when you finish."
+        ],
+        "leftovers": false
+    },
+    {}
+]
