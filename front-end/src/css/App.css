@@ -1,0 +1,14 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  overflow: scroll;
+  overflow-y: hidden;
+}
