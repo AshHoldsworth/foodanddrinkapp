@@ -16,7 +16,7 @@
         "isTreat": false,
         "isDessert": false,
         "cost": 1,
-        "timeToPrepare": "quick",
+        "timeToPrepare": 1,
         "difficulty": 1,
         "method": [
             "Preheat either with an over or a cast iron grill.",
@@ -33,5 +33,28 @@
         ],
         "leftovers": false
     },
-    {}
+    {
+        "name": "Hot Dogs",
+        "lowerCaseName": "hotdogs",
+        "description": "Hot Dogs with Bacon Pieces and Creme Fraiche",
+        "mealType": "evening",
+        "courseType": "main",
+        "calories": 200,
+        "ingredients": [
+            "Hot Dogs",
+            "Bun",
+            "Bacon",
+            "Creme Fraiche",
+            "American Mustard"
+        ],
+        "isTreat": false,
+        "isDessert": false,
+        "cost": 2,
+        "timeToPrepare": 2,
+        "difficulty": 2,
+        "method": [
+            "Make it"
+        ],
+        "leftovers": false
+    }
 ]

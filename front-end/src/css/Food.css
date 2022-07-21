@@ -1,0 +1,41 @@
+.Food {
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    border: .2vw solid black;
+    flex-direction: column;
+    margin: 1vh;
+}
+
+.Food #food-name {
+    font-size: calc(20pt + 1vmin);
+}
+
+.Food #image {
+    width: 50vw;
+    height: 10vh;
+    border: 1px solid black;
+}
+
+.Food #food-type {
+    font-size: calc(10pt + 1vmin);
+}
+
+.Food #food-details {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+}
+
+.Food #food-details #sub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Food #button button {
+    width: 30vw;
+    height: 2vh;
+    margin: 1vh;
+    font-size: calc(10pt + 1vmin);
+}
