@@ -19,10 +19,9 @@ export const FilterModal = ({ filter, setFilter, setOpenModal }) => {
 
     const mealTypes = ["all", "breakfast", "lunch", "evening", "dessert"]
     const courseTypes = ["all", "main", "side"]
-    const timeToPrepare = ["all", "1", "2", "3"]
-    const cost = ["all", "1", "2", "3"]
-    const difficulty = ["all", "1", "2", "3"]
-    const leftOvers = ["all", "true", "false"]
+    const timeToPrepare = ["all", "quick", "medium", "long"]
+    const cost = ["all", "cheap", "medium", "expensive"]
+    const difficulty = ["all", "easy", "medium", "hard"]
 
     return (
         <>
@@ -65,16 +64,15 @@ export const FilterModal = ({ filter, setFilter, setOpenModal }) => {
 
                         <div id="sub">
                             <div id="heading">Time To Prepare</div>
-                            <div id="array">{timeToPrepare.map((s, index) => (
+                            <div id="array">{timeToPrepare.map((ttp, index) => (
                                 <div key={index} id="value">
-                                    {capitalFirstLetter(s)}<input
+                                    {capitalFirstLetter(ttp)}<input
                                         key={index}
                                         type="radio"
-                                        value={s}
+                                        value={ttp}
                                         name="timeToPrepare"
-                                        checked={s === "all" && filter.timeToPrepare === "all" ? true : parseInt(s) === filter.timeToPrepare}
-                                        onChange={e => setFilter({...filter, timeToPrepare: e.target.value === "all" ? "all" : (parseInt(e.target.value))
-                                        })}
+                                        checked={ttp === filter.timeToPrepare}
+                                        onChange={e => setFilter({...filter, timeToPrepare: (e.target.value) })}
                                     />
                                 </div>))}
                             </div>
@@ -84,14 +82,13 @@ export const FilterModal = ({ filter, setFilter, setOpenModal }) => {
                             <div id="heading">Cost</div>
                             <div id="array">{cost.map((c, index) => (
                                 <div key={index} id="value">
-                                    {c === "all" ? "All" : c}<input
+                                    {capitalFirstLetter(c)}<input
                                         key={index}
                                         type="radio"
                                         value={c}
                                         name="cost"
-                                        checked={c === "all" && filter.cost === "all" ? true : parseInt(c) === filter.cost}
-                                        onChange={e => setFilter({...filter, cost: e.target.value === "all" ? "all" : (parseInt(e.target.value))
-                                        })}
+                                        checked={c === filter.cost}
+                                        onChange={e => setFilter({...filter, cost: (e.target.value) })}
                                     />
                                 </div>))}
                             </div>
@@ -101,14 +98,13 @@ export const FilterModal = ({ filter, setFilter, setOpenModal }) => {
                             <div id="heading">Difficulty</div>
                             <div id="array">{difficulty.map((d, index) => (
                                 <div key={index} id="value">
-                                    {d === "all" ? "All" : d}<input
+                                    {capitalFirstLetter(d)}<input
                                         key={index}
                                         type="radio"
                                         value={d}
                                         name="difficulty"
-                                        checked={d === "all" && filter.difficulty === "all" ? true : parseInt(d) === filter.difficulty}
-                                        onChange={e => setFilter({...filter, difficulty: e.target.value === "all" ? "all" : (parseInt(e.target.value))
-                                        })}
+                                        checked={d === filter.difficulty}
+                                        onChange={e => setFilter({...filter, difficulty: (e.target.value) })}
                                     />
                                 </div>))}
                             </div>

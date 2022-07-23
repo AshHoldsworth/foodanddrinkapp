@@ -15,25 +15,29 @@ export const Food = ({ food, setDisplayFilterButton }) => {
             <div className={"Food"}>
                 <div id="food-name">{food.name}</div>
                 <div id="food-description">{food.description}</div>
-                <div id="food-ingredients">{food.ingredients.map((ingredient, index) => (
-                    <p key={index}>{capitalFirstLetter(ingredient)}</p>
-                ))}</div>
-                <div id="image">
+                <div id="image-ingredients">
                     <img src={require(`../images/food/${food.lowerCaseName}.png`)} />
+                    <div id="food-ingredients">
+                        <div id="heading">Ingredients</div>
+                        {food.ingredients.map((ingredient, index) => (
+                            <div id="ingredient" key={index}>{capitalFirstLetter(ingredient)}</div>
+                            ))
+                        }
+                    </div>
                 </div>
                 <div id="food-type">{capitalFirstLetter(food.mealType)} - {capitalFirstLetter(food.courseType)}</div>
                 <div id="food-details">
                     <div id="sub">
-                        <p>Calories</p> {food.calories}
+                        <p>Calories approx.</p> {food.calories}
                     </div>
                     <div id="sub">
-                        <p>Cost</p> {food.cost}
+                        <p>Cost of Ingredients</p> {capitalFirstLetter(food.cost)}
                     </div>
                     <div id="sub">
-                        <p>Speed</p> {(food.timeToPrepare)}
+                        <p>Time to Prepare</p> {capitalFirstLetter(food.timeToPrepare)}
                     </div>
                     <div id="sub">
-                        <p>Difficulty</p> {food.difficulty}
+                        <p>Difficulty</p> {capitalFirstLetter(food.difficulty)}
                     </div>
                 </div>
                 <div id="button">

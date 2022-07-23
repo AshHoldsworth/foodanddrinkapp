@@ -15,22 +15,39 @@
     margin: .1vh;
 }
 
-.Food #food-ingredients {
+.Food #image-ingredients {
     display: flex;
     justify-content: space-around;
-    font-size: calc(3pt + 1vmin);
-    width: 40vw;
-    font-style: italic;
+    margin: 1vh;
+    width: 70vw;
 }
 
-.Food #image img {
+.Food #image-ingredients img {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40vw;
     height: auto;
     border: 3px solid black;
-    margin: .1vh;
+}
+
+.Food #food-ingredients {
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+}
+
+.Food #food-ingredients #heading {
+    font-size: calc(15pt + 1vmin);
+    font-weight: bold;
+    margin-bottom: .7vh;
+}
+
+.Food #food-ingredients #ingredient {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: calc(10pt + 1vmin);
 }
 
 .Food #food-type {
