@@ -5,6 +5,7 @@ import { useFoodList } from "../hooks/useFoodList"
 import { Food } from "./Food"
 
 export const FoodPage = ({ foodList, setFoodList }) => {
+    const [displayFilterButton, setDisplayFilterButton] = useState(true)
     const [openFilterModal, setOpenFilterModal] = useState(false)
     const handleOpenFilter = () => {
         setOpenFilterModal(true)
@@ -18,11 +19,11 @@ export const FoodPage = ({ foodList, setFoodList }) => {
         "timeToPrepare": "all",
         "cost": "all",
         "difficulty": "all"
-    })  
+    })
     useEffect(() => {
         if (foodList[0]) {
-            let newList = [ ...foodList ]
-            newList = newList.filter(food => 
+            let newList = [...foodList]
+            newList = newList.filter(food =>
                 (filter.mealType === "all" ? true : food.mealType === filter.mealType) &&
                 (filter.courseType === "all" ? true : food.courseType === filter.courseType) &&
                 (filter.timeToPrepare === "all" ? true : food.timeToPrepare === filter.timeToPrepare) &&
@@ -33,17 +34,18 @@ export const FoodPage = ({ foodList, setFoodList }) => {
         }
     }, [filter, foodList])
 
-    return foodList[0] ? (
+    return (
         <>
             <div className="Main">
-                {filteredList.map((food, index) => (
-                    <Food key={index} food={food} />
-                ))}
+                {filteredList[0] ?
+                    filteredList.map((food, index) => (
+                        <Food key={index} food={food} setDisplayFilterButton={setDisplayFilterButton} />
+                    )) : <p>Nothing matches your critera!</p>}
                 <div id="filter-button">
-                    <button onClick={handleOpenFilter}>Filter</button>
+                    {displayFilterButton && <button onClick={handleOpenFilter}>Filter</button>}
                 </div>
             </div>
             {openFilterModal && <FilterModal setOpenModal={setOpenFilterModal} filter={filter} setFilter={setFilter} />}
         </>
-    ) : (<p>Food List is empty!</p>)
+    )
 }

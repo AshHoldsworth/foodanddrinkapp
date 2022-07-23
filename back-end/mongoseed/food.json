@@ -41,11 +41,11 @@
         "courseType": "main",
         "calories": 200,
         "ingredients": [
-            "Hot Dogs",
-            "Bun",
-            "Bacon",
-            "Creme Fraiche",
-            "American Mustard"
+            "hot dog",
+            "bun",
+            "bacon",
+            "creme fraiche",
+            "american mustard"
         ],
         "isTreat": false,
         "isDessert": false,

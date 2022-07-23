@@ -113,24 +113,7 @@ export const FilterModal = ({ filter, setFilter, setOpenModal }) => {
                                 </div>))}
                             </div>
                         </div>
-
-                        {/* <div id="sub">
-                            <div id="heading">Leftovers</div>
-                            <div id="array">{leftOvers.map((l, index) => (
-                                <div key={index} id="value">
-                                    {capitalFirstLetter(l)}<input
-                                        key={index}
-                                        type="radio"
-                                        value={l}
-                                        name="leftOvers"
-                                        checked={l === "all" && filter.speed === "all" ? true : parseInt(l) === filter.speed}
-                                        onChange={e => setFilter({...filter, leftovers: e.target.value === "all" ? "all" : (parseInt(e.target.value))
-                                        })}
-                                    />
-                                </div>))}
-                            </div>
-                        </div> */}
-
+                        
                         <button onClick={() => handleReset()}>Reset</button>
 
                     </div>

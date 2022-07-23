@@ -11,18 +11,26 @@
 }
 
 .Food #food-description {
-    font-size: calc(5pt + 1vmin);
-    margin: .2vh;
+    font-size: calc(7pt + 1vmin);
+    margin: .1vh;
 }
 
-.Food #image {
+.Food #food-ingredients {
+    display: flex;
+    justify-content: space-around;
+    font-size: calc(3pt + 1vmin);
+    width: 40vw;
+    font-style: italic;
+}
+
+.Food #image img {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50vw;
-    height: 10vh;
-    border: 1px solid black;
-    margin: .2vh;
+    width: 40vw;
+    height: auto;
+    border: 3px solid black;
+    margin: .1vh;
 }
 
 .Food #food-type {

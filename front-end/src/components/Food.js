@@ -1,18 +1,25 @@
 import '../css/Food.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FoodMethodModal } from './FoodMethodModal'
 import { capitalFirstLetter } from '../functions/capitalFirstLetter'
 
-export const Food = ({ food }) => {
+export const Food = ({ food, setDisplayFilterButton }) => {
     const [openModal, setOpenModal] = useState(false)
+
+    useEffect(() => {
+        setDisplayFilterButton(!openModal)
+    }, [openModal])
 
     return food.name ? (
         <>
             <div className={"Food"}>
                 <div id="food-name">{food.name}</div>
                 <div id="food-description">{food.description}</div>
+                <div id="food-ingredients">{food.ingredients.map((ingredient, index) => (
+                    <p key={index}>{capitalFirstLetter(ingredient)}</p>
+                ))}</div>
                 <div id="image">
-                    IMAGE
+                    <img src={require(`../images/food/${food.lowerCaseName}.png`)} />
                 </div>
                 <div id="food-type">{capitalFirstLetter(food.mealType)} - {capitalFirstLetter(food.courseType)}</div>
                 <div id="food-details">
