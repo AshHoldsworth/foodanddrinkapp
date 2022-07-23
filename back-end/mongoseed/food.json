@@ -94,8 +94,7 @@
             "Drizzle over the balsamic dressing."
         ],
         "leftovers": false
-    }
-    ,
+    },
     {
         "name": "Club Sandwich",
         "lowerCaseName": "clubsandwich",
@@ -135,5 +134,42 @@
             "Cut the club sandwich diagonally into quarters. Line them up on a plate and enjoy!"
         ],
         "leftovers": false
+    },
+    {
+        "name": "Sweet Pepper Chicken Pasta with Boursin",
+        "lowerCaseName": "sweetpepperpasta",
+        "description": "Pasta with sweet peppers and chicken, all in a creamy cheese sauce.",
+        "mealType": "evening",
+        "courseType": "main",
+        "calories": 570,
+        "ingredients": [
+            "Chicken",
+            "Peppers",
+            "Piquante Peppers",
+            "Pasta",
+            "Boursin",
+            "Creme Fraiche",
+            "Garlic"
+        ],
+        "isTreat": false,
+        "isDessert": false,
+        "cost": "medium",
+        "timeToPrepare": "quick",
+        "difficulty": "easy",
+        "method": [
+            "Start by slicing up the peppers into strips.",
+            "Cut up some chicken in to pieces.",
+            "Put the peppers and chicken into a frying pan with a splash of oil.",
+            "Boil some water and set your pasta to boil. Add salt to the water.",
+            "Add seasoning to the chicken and pepper mixture and stir it in. I recommend salt, pepper and paprika",
+            "Add some chopped up garlic to the mixture.",
+            "Add in some sweet piquante peppers along with some of the juice.",
+            "Leave the mixture to simmer for a short while.",
+            "Add half a box of Boursin in to the mixture and stir it all up.",
+            "Once the pasta is mostly cooked, add it to the chicken and pepper mixture. Add a little pasta water too.",
+            "Give it a good stir and then add a few tablespoons of creme fraiche. Mix it all in.",
+            "Allow it to continue cooking for a few more minutes and then serve!"
+        ],
+        "leftovers": true
     }
 ]
