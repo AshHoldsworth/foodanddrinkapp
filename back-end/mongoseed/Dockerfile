@@ -9,12 +9,12 @@ CMD mongoimport \
     --file /food.json \
     --jsonArray
 
-COPY drink.json /drink.json
-CMD mongoimport \
-    --host mongodb \
-    --db foodanddrinkapp \
-    --collection drink \
-    --type json \
-    --file /drink.json \
-    --jsonArray
+# COPY drink.json /drink.json
+# CMD mongoimport \
+#     --host mongodb \
+#     --db foodanddrinkapp \
+#     --collection drink \
+#     --type json \
+#     --file /drink.json \
+#     --jsonArray
 

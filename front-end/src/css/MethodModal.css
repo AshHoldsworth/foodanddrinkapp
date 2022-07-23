@@ -1,0 +1,49 @@
+.MethodModal .background {
+    height: 100vh;
+    width: 100vh;
+    background: rgba(55, 54, 54, 0.5);
+    position: fixed;
+    float: left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MethodModal .container {
+    height: 90vh;
+    width: 80vw;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+    padding-top: 1vh;
+}
+
+.MethodModal .container #close-button {
+    display: flex;
+    justify-content: flex-end;
+    font-size: calc(10pt + 1vmin);
+    width: inherit;
+    padding-right: 6%;
+} 
+
+.MethodModal .container #heading {
+    font-size: calc(30pt + 1vmin);
+}
+
+.MethodModal .container #step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1vh 5vw 1vh 5vw;
+    font-size: calc(40pt + 1vmin);
+    flex-direction: column;
+}
+
+.MethodModal .container #step hr {
+    width: 100%;
+}

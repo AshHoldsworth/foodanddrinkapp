@@ -6,6 +6,8 @@
 .App {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -13,7 +15,26 @@
 .Main {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 90vh;
   overflow: scroll;
   overflow-y: hidden;
+}
+
+.Main #filter-button {
+  position: fixed;
+  float: left;
+  left: 93%;
+  top: 96%;
+  transform: translate(-50%, -50%);
+}
+
+.Main #filter-button button {
+  width: 10vw;
+  height: 2vh;
+  margin: 1vh;
+  font-size: calc(10pt + 1vmin);
+  background-color: var(--mainColour);
+  color: #ffffff;
+  border-radius: 1vh;
 }
