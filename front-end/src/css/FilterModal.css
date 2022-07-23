@@ -24,9 +24,10 @@
 
 .FilterModal .container #close-button {
     display: flex;
-    justify-content: flex-end;
     font-size: calc(10pt + 1vmin);
-    
+    width: inherit;
+    justify-content: flex-end;
+    padding-right: 4vw;    
 } 
 
 .FilterModal .container #heading {
@@ -39,6 +40,7 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    padding-top: 1vh;
 }
 
 .FilterModal .container #sub #heading {
@@ -56,3 +58,12 @@
     margin: 1vw;
 }
 
+.FilterModal button {
+    width: 30vw;
+    height: 2vh;
+    margin: 1vh;
+    font-size: calc(10pt + 1vmin);
+    background-color: var(--mainColour);
+    color: #ffffff;
+    border-radius: 1vh;
+}

@@ -1,20 +1,35 @@
 import '../css/FilterModal.css'
 import { capitalFirstLetter } from '../functions/capitalFirstLetter'
 
-export const FilterModal = ({ filter, setFilter }) => {
+export const FilterModal = ({ filter, setFilter, setOpenModal }) => {
+
+    const handleClose = () => {
+        setOpenModal(false)
+    }
+
+    const handleReset = () => {
+        setFilter({
+            "mealType": "all",
+            "courseType": "all",
+            "timeToPrepare": "all",
+            "cost": "all",
+            "difficulty": "all",
+        })
+    }
 
     const mealTypes = ["all", "breakfast", "lunch", "evening", "dessert"]
     const courseTypes = ["all", "main", "side"]
-    const speed = ["all", "1", "2", "3"]
+    const timeToPrepare = ["all", "1", "2", "3"]
     const cost = ["all", "1", "2", "3"]
     const difficulty = ["all", "1", "2", "3"]
     const leftOvers = ["all", "true", "false"]
-    
+
     return (
         <>
             <div className="FilterModal">
                 <div className="background">
                     <div className="container">
+                        <div id="close-button"><span onClick={handleClose}>x</span></div>
                         
                         <div id="sub">
                             <div id="heading">Meal Type</div>
@@ -26,8 +41,8 @@ export const FilterModal = ({ filter, setFilter }) => {
                                         value={mealType}
                                         name="mealType"
                                         checked={mealType === filter.mealType}
-                                        onChange={e => setFilter({...filter, mealType:(e.target.value)})}
-                                        />
+                                        onChange={e => setFilter({ ...filter, mealType: (e.target.value) })}
+                                    />
                                 </div>))}
                             </div>
                         </div>
@@ -42,24 +57,25 @@ export const FilterModal = ({ filter, setFilter }) => {
                                         value={courseType}
                                         name="courseType"
                                         checked={courseType === filter.courseType}
-                                        onChange={e => setFilter({...filter, courseType:(e.target.value)})}
-                                        />
+                                        onChange={e => setFilter({ ...filter, courseType: (e.target.value) })}
+                                    />
                                 </div>))}
                             </div>
                         </div>
 
                         <div id="sub">
-                            <div id="heading">Speed</div>
-                            <div id="array">{speed.map((s, index) => (
+                            <div id="heading">Time To Prepare</div>
+                            <div id="array">{timeToPrepare.map((s, index) => (
                                 <div key={index} id="value">
-                                        {capitalFirstLetter(s)}<input
+                                    {capitalFirstLetter(s)}<input
                                         key={index}
                                         type="radio"
                                         value={s}
-                                        name="speed"
-                                        checked={s === filter.speed}
-                                        onChange={e => setFilter({...filter, speed:(e.target.value)})}
-                                        />
+                                        name="timeToPrepare"
+                                        checked={s === "all" && filter.timeToPrepare === "all" ? true : parseInt(s) === filter.timeToPrepare}
+                                        onChange={e => setFilter({...filter, timeToPrepare: e.target.value === "all" ? "all" : (parseInt(e.target.value))
+                                        })}
+                                    />
                                 </div>))}
                             </div>
                         </div>
@@ -73,9 +89,10 @@ export const FilterModal = ({ filter, setFilter }) => {
                                         type="radio"
                                         value={c}
                                         name="cost"
-                                        checked={c === filter.cost}
-                                        onChange={e => setFilter({...filter, cost:(e.target.value)})}
-                                        />
+                                        checked={c === "all" && filter.cost === "all" ? true : parseInt(c) === filter.cost}
+                                        onChange={e => setFilter({...filter, cost: e.target.value === "all" ? "all" : (parseInt(e.target.value))
+                                        })}
+                                    />
                                 </div>))}
                             </div>
                         </div>
@@ -89,28 +106,32 @@ export const FilterModal = ({ filter, setFilter }) => {
                                         type="radio"
                                         value={d}
                                         name="difficulty"
-                                        checked={d === filter.difficulty}
-                                        onChange={e => setFilter({...filter, difficulty:(e.target.value)})}
-                                        />
+                                        checked={d === "all" && filter.difficulty === "all" ? true : parseInt(d) === filter.difficulty}
+                                        onChange={e => setFilter({...filter, difficulty: e.target.value === "all" ? "all" : (parseInt(e.target.value))
+                                        })}
+                                    />
                                 </div>))}
                             </div>
                         </div>
 
-                        <div id="sub">
-                            <div id="heading">LeftOvers</div>
+                        {/* <div id="sub">
+                            <div id="heading">Leftovers</div>
                             <div id="array">{leftOvers.map((l, index) => (
                                 <div key={index} id="value">
-                                        {capitalFirstLetter(l)}<input
+                                    {capitalFirstLetter(l)}<input
                                         key={index}
                                         type="radio"
                                         value={l}
                                         name="leftOvers"
-                                        checked={l === filter.leftovers}
-                                        onChange={e => setFilter({...filter, leftovers:(e.target.value)})}
-                                        />
+                                        checked={l === "all" && filter.speed === "all" ? true : parseInt(l) === filter.speed}
+                                        onChange={e => setFilter({...filter, leftovers: e.target.value === "all" ? "all" : (parseInt(e.target.value))
+                                        })}
+                                    />
                                 </div>))}
                             </div>
-                        </div>
+                        </div> */}
+
+                        <button onClick={() => handleReset()}>Reset</button>
 
                     </div>
                 </div>
