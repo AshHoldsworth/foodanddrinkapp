@@ -1,0 +1,22 @@
+:root {
+    --myBlue: #123456;
+    --myWhite: #f6f6f6;
+    --myGrey: #919191;
+}
+
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1200px;
+    margin: auto;
+}
+
+a {
+    text-decoration: dashed;
+    font-weight: bold;
+}
