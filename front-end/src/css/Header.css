@@ -14,7 +14,16 @@ h1 {
 }
 
 a {
+    box-shadow: inset 0 0 0 0 var(--myWhite);
     color: var(--myWhite);
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+a:hover {
+    box-shadow: inset 100px 0 0 0 var(--myWhite);
+    color: var(--myBlue);
 }
 
 nav {
@@ -25,12 +34,16 @@ nav {
     align-items: center;
 }
 
-input {
+header input {
     display: none;
 }
 
-@media screen and (max-width: 1200px) {
-    input {
+#nav-search-icon, #nav-menu-icon, #nav-menu {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    header input {
         display: block;
         grid-column: 12 ;
         grid-row: 2;
@@ -41,4 +54,48 @@ input {
         margin-right: 10px;
     }
     
+}
+
+@media screen and (max-width: 500px) {
+    header input, nav {
+        display: none;
+    }
+
+    header {
+        padding-bottom: 0vh;
+    }
+    
+    h1 {
+        font-size: 15pt;
+    }
+
+    #nav-search-icon, #nav-menu-icon {
+        display: block;
+        grid-row: 1;
+        width: 30px;
+        align-self: center;
+        cursor: pointer;
+    }
+
+    #nav-search-icon {
+        grid-column: 12;
+        padding-right: 10px;
+    }
+
+    #nav-menu-icon {
+        grid-column: 1;
+        padding-left: 10px;
+    }
+
+    #nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 37px;
+        left: 20px;
+        background-color: var(--myBlue);
+        height: 200px;
+        justify-content: space-between;
+        padding: 10px;
+        font-size: 15pt;
+    }
 }

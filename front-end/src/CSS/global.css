@@ -7,16 +7,21 @@
 body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
+    color: var(--myBlue);
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
 }
 
 a {
     text-decoration: dashed;
     font-weight: bold;
+}
+
+a:hover {
+    cursor: pointer;
 }
