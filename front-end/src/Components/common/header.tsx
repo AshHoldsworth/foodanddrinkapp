@@ -1,15 +1,31 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useState,
+  useContext,
+  Dispatch,
+  SetStateAction,
+} from "react";
+import { Global } from "../../global";
+import { IFocusedTab } from "../../@Types/IFocusedTab";
+import { Page } from "../../App";
 import "../../CSS/header.css";
 
-export const Header = () => {
-  const [currentTab, setCurrentTab] = useState("");
+export const Header = ({
+  setCurrentPage,
+}: {
+  setCurrentPage: Dispatch<SetStateAction<string>>;
+}) => {
   const [navMenuDisplay, setNavMenuDisplay] = useState("none");
   const navigate = useNavigate();
-  const pages = ["Home", "Food", "Drink", "Favourites"];
-
-  const handleClick = (target: string): void => {
-    setCurrentTab(`${target}`);
+  const currentTab = useContext(Page);
+  const pages = Global.pages;
+  const focusedTab: IFocusedTab = {
+    backgroundColor: "#f6f6f6",
+    color: "#123456",
+  };
+  const handleClick = (page: string): void => {
+    setCurrentPage(page);
     setNavMenuDisplay("none");
   };
 
@@ -26,6 +42,8 @@ export const Header = () => {
   };
   useEffect(() => {
     document.getElementById("nav-menu")!.style.display = navMenuDisplay;
+    document.getElementById("pop-up-background")!.style.display =
+      navMenuDisplay;
   }, [navMenuDisplay]);
 
   return (
@@ -35,12 +53,31 @@ export const Header = () => {
           <h1>Food and Drink App</h1>
           <nav>
             {pages.map((page) => (
-              <a onClick={() => handleClick(`/${page === "Home" ? "" : page}`)}>
-                {page}
-              </a>
+              <>
+                <a
+                  onClick={() => handleClick(`${page === "Home" ? "" : page}`)}
+                  style={
+                    `/${page}` === currentTab
+                      ? focusedTab
+                      : currentTab === "/" && page === "Home"
+                      ? focusedTab
+                      : undefined
+                  }
+                  key={page}
+                >
+                  {page}
+                </a>{" "}
+                {pages.indexOf(page) === pages.length - 1 ? null : (
+                  <span>|</span>
+                )}
+              </>
             ))}
           </nav>
-          <input type="input" placeholder="Search" />
+          <input
+            type="input"
+            placeholder="Search Food & Drink"
+            maxLength={40}
+          />
           <img
             src={require("../../Assets/images/search-white.png")}
             alt="search"
@@ -53,13 +90,24 @@ export const Header = () => {
             id="nav-menu-icon"
             onClick={() => handleMenu()}
           />
-
-          <div id="nav-menu" onMouseLeave={() => handleMenu()}>
-            {pages.map((page) => (
-              <a onClick={() => handleClick(`/${page === "Home" ? "" : page}`)}>
-                {page}
-              </a>
-            ))}
+          <div id="pop-up-background" onClick={() => handleMenu()}>
+            <div id="nav-menu" onMouseLeave={() => handleMenu()}>
+              {pages.map((page) => (
+                <a
+                  onClick={() => handleClick(`/${page === "Home" ? "" : page}`)}
+                  style={
+                    `/${page}` === currentTab
+                      ? focusedTab
+                      : currentTab === "/" && page === "Home"
+                      ? focusedTab
+                      : undefined
+                  }
+                  key={page}
+                >
+                  {page}
+                </a>
+              ))}
+            </div>
           </div>
         </header>
       </div>

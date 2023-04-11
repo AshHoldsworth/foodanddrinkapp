@@ -56,7 +56,7 @@ header input {
     
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     header input, nav {
         display: none;
     }

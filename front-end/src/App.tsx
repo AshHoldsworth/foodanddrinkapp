@@ -1,18 +1,19 @@
-import { BrowserRouter } from "react-router-dom";
-import { useState } from "react";
+import { createContext, useState } from "react";
 import { Header } from "./Components/common/header";
-import { Footer } from "./Components/common/footer";
 import { Main } from "./Components/common/main";
 import "./CSS/global.css";
-const App = () => {
-    return (
+const Page = createContext<string>("/");
+
+export const App = () => {
+  const [currentPage, setCurrentPage] = useState("/");
+  return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
+      <Page.Provider value={currentPage}>
+        <Header setCurrentPage={setCurrentPage} />
         <Main />
-      </BrowserRouter>
+      </Page.Provider>
     </div>
   );
 };
 
-export default App;
+export { Page };
