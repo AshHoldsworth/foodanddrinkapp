@@ -1,10 +1,14 @@
 ﻿namespace foodanddrinkapp_backend.Models
 {
-    public class Food
+    public class Food : Consumable
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public DateTime DateAdded { get; set; }
+        public string type;
+
+        public Food() { }
+
+        public Food(string name, int rating, List<Ingredient> ingredients) :base(name, rating, ingredients)
+        {
+            type = "food";
+        }
     }
 }

@@ -6,6 +6,7 @@ const Page = createContext<string>("/");
 
 export const App = () => {
   const [currentPage, setCurrentPage] = useState("/");
+
   return (
     <div className="App">
       <Page.Provider value={currentPage}>
