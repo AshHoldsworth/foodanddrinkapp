@@ -15,15 +15,17 @@ export const Food = () => {
 
   return (
     <>
-      {consumablesList ? (
-        JSON.parse(consumablesList.toString()).map(
-          (consumable: IConsumable) => (
-            <ConsumableItem consumable={consumable} />
+      <div id="food-list" className="grid">
+        {consumablesList ? (
+          JSON.parse(consumablesList.toString()).map(
+            (consumable: IConsumable, index: number) => (
+              <ConsumableItem consumable={consumable} index={index} />
+            )
           )
-        )
-      ) : (
-        <p>Nothing to display!</p>
-      )}
+        ) : (
+          <p>Nothing to display!</p>
+        )}
+      </div>
     </>
   );
 };

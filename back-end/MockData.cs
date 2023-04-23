@@ -23,7 +23,7 @@ namespace foodanddrinkapp_backend
 
         private static Food[] foodList = new Food[]
             {
-                new Food("Cottage Pie", 4, ingredientList),
+                new Food("Cottage Pie", 3, ingredientList),
                 new Food("Chicken Burger", 4, ingredientList1)
             };
 
