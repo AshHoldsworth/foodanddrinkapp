@@ -7,17 +7,8 @@ export class ApiClient {
 
     public async get<T>(endpoint: string): Promise<T> {
 
-        const headers = new Headers({
-            Mode: 'no-cors'
-        });
-
-        const requestOptions = {
-            method: "GET",
-            headers
-        };
-
         try {
-            const response = await fetch(`${this.urlPath}${endpoint}`, requestOptions);
+            const response = await fetch(`${this.urlPath}${endpoint}`);
             const data = await response.text() as T;
             return data;
         }
