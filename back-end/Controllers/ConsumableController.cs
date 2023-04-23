@@ -11,5 +11,17 @@ namespace foodanddrinkapp_backend.Controllers
         {
             return new string[] { "Hello", "World" };
         }
+
+        [HttpGet("food")]
+        public string[] Food()
+        {
+            return new string[] { "Food", "List" };
+        }
+
+        [HttpGet("drink")]
+        public string[] Drink()
+        {
+            return new string[] { "Drink", "List" };
+        }
     }
 }
