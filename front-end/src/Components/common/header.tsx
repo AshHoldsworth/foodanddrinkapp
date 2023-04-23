@@ -63,7 +63,6 @@ export const Header = ({
                       ? focusedTab
                       : undefined
                   }
-                  key={page}
                 >
                   {page}
                 </a>{" "}
@@ -102,7 +101,6 @@ export const Header = ({
                       ? focusedTab
                       : undefined
                   }
-                  key={page}
                 >
                   {page}
                 </a>

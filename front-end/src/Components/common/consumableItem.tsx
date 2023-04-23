@@ -1,5 +1,5 @@
 import "../../css/consumableItem.css";
-import { IConsumable } from "../../Interfaces/IConsumables";
+import { IConsumable } from "../../@Types/IConsumables";
 
 export const ConsumableItem = ({
   consumable,

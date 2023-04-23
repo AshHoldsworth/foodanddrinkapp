@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ApiClient } from "../../api/ApiClient";
 import { Global } from "../../global";
 import { ConsumableItem } from "../common/consumableItem";
-import { IConsumable } from "../../Interfaces/IConsumables";
+import { IConsumable } from "../../@Types/IConsumables";
 
 export const Food = () => {
   const [consumablesList, setConsumablesList] = useState<[]>();
