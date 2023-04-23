@@ -9,18 +9,7 @@ namespace foodanddrinkapp_backend.Models
         public string Name { get; set; }
         public DateTime DateAdded { get; set; }
         public List<Ingredient> Ingredients { get; set; }
-        public int Rating {
-            get { return Rating; }
-            set { if (value > 5)
-                {
-                    Rating = 5;
-                }
-                else
-                {
-                    Rating = value;
-                }
-            }
-        }
+        public int Rating { get; set; }
 
         public Consumable(string name, int rating, List<Ingredient> ingredients)
         {

@@ -5,11 +5,11 @@ export class ApiClient {
         this.urlPath = urlPath;
     }
 
-    public async get<T>(endpoint: string): Promise<T> {
+    public async get<t>(endpoint: string): Promise<t> {
 
         try {
             const response = await fetch(`${this.urlPath}${endpoint}`);
-            const data = await response.text() as T;
+            const data = await response.text() as t;
             return data;
         }
         catch (error) {

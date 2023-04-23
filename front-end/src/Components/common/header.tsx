@@ -9,7 +9,7 @@ import {
 import { Global } from "../../global";
 import { IFocusedTab } from "../../@Types/IFocusedTab";
 import { Page } from "../../App";
-import "../../CSS/header.css";
+import "../../css/header.css";
 
 export const Header = ({
   setCurrentPage,

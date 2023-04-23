@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import { Header } from "./Components/common/header";
 import { Main } from "./Components/common/main";
-import "./CSS/global.css";
+import "./css/global.css";
 const Page = createContext<string>("/");
 
 export const App = () => {
