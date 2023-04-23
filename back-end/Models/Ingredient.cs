@@ -7,9 +7,6 @@ namespace foodanddrinkapp_backend.Models
         public static int CurrentId { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<ConsumableIngredient> ConsumableIngredients { get; set; }
-
-        public Ingredient() { }
 
         public Ingredient(string name)
         {

@@ -9,7 +9,6 @@ namespace foodanddrinkapp_backend.Models
         public string Name { get; set; }
         public DateTime DateAdded { get; set; }
         public List<Ingredient> Ingredients { get; set; }
-        public virtual ICollection<ConsumableIngredient> ConsumableIngredients { get; set; }
         public int Rating {
             get { return Rating; }
             set { if (value > 5)
@@ -22,8 +21,6 @@ namespace foodanddrinkapp_backend.Models
                 }
             }
         }
-
-        public Consumable() { }
 
         public Consumable(string name, int rating, List<Ingredient> ingredients)
         {

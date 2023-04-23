@@ -7,7 +7,7 @@ export const Food = () => {
   const [consumablesList, setConsumablesList] = useState<string[]>();
   const apiClient = new ApiClient(Global.context.urlPath);
 
-  apiClient.get("consumables").then((results: any) => {
+  apiClient.get("consumables/food").then((results: any) => {
     setConsumablesList(results);
   });
   return <>{consumablesList}</>;

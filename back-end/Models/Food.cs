@@ -2,9 +2,7 @@
 {
     public class Food : Consumable
     {
-        public string type;
-
-        public Food() { }
+        public string? type;
 
         public Food(string name, int rating, List<Ingredient> ingredients) :base(name, rating, ingredients)
         {
