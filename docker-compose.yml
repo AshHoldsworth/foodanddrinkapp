@@ -13,28 +13,3 @@ services:
     build:
       context: ./front-end
       dockerfile: Dockerfile
-
-  mongoDb:
-    image: mongo
-    container_name: foodanddrink-mongo
-    restart: always
-    ports:
-    - "27017:27017"
-
-  mongo-seed:
-    build: ./back-end/mongoseed
-    depends_on:
-     - mongoDb
-
-  backend:
-    image: foodanddrinkexpress:latest
-    container_name: foodanddrink-express
-    ports:
-      - "8080:8080"
-    environment:
-      CHOKIDAR_USEPOLLING: "true"
-    volumes:
-      - ./back-end:/app
-    build:
-      context: ./back-end
-      dockerfile: Dockerfile
