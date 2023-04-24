@@ -20,7 +20,6 @@ export const ConsumableItem = ({
     fontSize: 22
   };
 
-  console.log(`Name is ${consumable.name.length}`)
   if (consumable.name.length > 15) {
     headerSize = {
       fontSize: 15
