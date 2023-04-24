@@ -15,6 +15,11 @@ export const Food = () => {
 
   return (
     <>
+    <div id="filter-bar" className=".grid">
+      <p>
+        FILTER BAR
+      </p>
+    </div>
       <div id="food-list" className="grid">
         {consumablesList ? (
           JSON.parse(consumablesList.toString()).map(

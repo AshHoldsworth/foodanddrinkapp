@@ -1,4 +1,15 @@
+#filter-bar {
+    background-color: var(--myGrey);
+    text-align: center;
+    margin: 0;
+    height: 30px;
+}
+
+#filter-bar p {
+    margin: 0;
+}
+
 #food-list {
     margin-top: 1vh;
-    justify-content: space-around;
 }
+
