@@ -9,3 +9,14 @@ updates:
     directory: "/front-end" # Location of package manifests
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+  - package-ecosystem: "nuget"
+    directory: "/back-end/foodanddrinkapp-backend"
+    schedule:
+      interval: "weekly"
+    open-pull-request-limit: 2
+  - package-ecosystem: "nuget"
+    directory: "/back-end/foodanddrinkapp-database"
+    schedule:
+      interval: "weekly"
+    open-pull-request-limit: 2
