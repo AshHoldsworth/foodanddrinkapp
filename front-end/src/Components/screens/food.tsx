@@ -7,26 +7,37 @@ import { IConsumable } from "../../@Types/IConsumables";
 
 export const Food = () => {
   const [consumablesList, setConsumablesList] = useState<[]>();
+  const [healthyOption, setHealthyOption] = useState<boolean>();
   const apiClient = new ApiClient(Global.context.urlPath);
 
+  const handleHealthyOption = () => {
+    setHealthyOption(!healthyOption);
+  }
+  
   apiClient.get("consumables/food").then((response: any) => {
     setConsumablesList(response);
+    console.log(healthyOption);
   });
+  let consumablesToDisplay: any = [];
+  
+  if (consumablesList) {
+    JSON.parse(consumablesList.toString()).map(
+      (consumable: IConsumable) => (
+        healthyOption && consumable.isHealthyOption ? consumablesToDisplay.push(consumable) : (
+          !healthyOption ? consumablesToDisplay.push(consumable) : null 
+        )));
+      }
 
   return (
     <>
     <div id="filter-bar" className=".grid">
       <p>
-        FILTER BAR
+        Healthy Options: <input type="checkbox" checked={healthyOption} onChange={handleHealthyOption}/>
       </p>
     </div>
       <div id="food-list" className="grid">
-        {consumablesList ? (
-          JSON.parse(consumablesList.toString()).map(
-            (consumable: IConsumable, index: number) => (
-              <ConsumableItem consumable={consumable} index={index} />
-            )
-          )
+        {consumablesList ? consumablesToDisplay.map((consumable: IConsumable, index: number) => ( 
+          <ConsumableItem consumable={consumable} index={index} />)
         ) : (
           <p>Nothing to display!</p>
         )}
