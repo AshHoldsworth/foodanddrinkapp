@@ -1,7 +1,6 @@
-﻿using System;
-using foodanddrinkapp_backend.Models;
+﻿using FoodAndDrink.Api.Models;
 
-namespace foodanddrinkapp_backend
+namespace FoodAndDrink.Api
 {
 	public class MockData
 	{

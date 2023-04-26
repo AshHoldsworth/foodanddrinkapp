@@ -1,6 +1,6 @@
-﻿using foodanddrinkapp_backend.Models.Interfaces;
+﻿using FoodAndDrink.Api.Models.Interfaces;
 
-namespace foodanddrinkapp_backend.Models
+namespace FoodAndDrink.Api.Models
 {
     public class Ingredient : IDatabaseItem
     {

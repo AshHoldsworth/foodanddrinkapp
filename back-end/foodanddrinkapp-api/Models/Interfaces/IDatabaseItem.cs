@@ -1,4 +1,4 @@
-﻿namespace foodanddrinkapp_backend.Models.Interfaces
+﻿namespace FoodAndDrink.Api.Models.Interfaces
 {
     public interface IDatabaseItem
     {
