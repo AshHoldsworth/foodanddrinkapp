@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 using Dapper;
 using FluentMigrator.Runner;
 using FluentMigrator.Runner.Initialization;
-using foodanddrinkapp_database.Migrations;
+using FoodAndDrink.Database.Migrations;
 
 internal class Program
 {

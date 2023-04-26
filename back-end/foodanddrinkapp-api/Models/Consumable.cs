@@ -1,6 +1,6 @@
-﻿using foodanddrinkapp_api.Models.Interfaces;
+﻿using FoodAndDrink.Api.Models.Interfaces;
 
-namespace foodanddrinkapp_api.Models
+namespace FoodAndDrink.Api.Models
 {
     public class Consumable : IDatabaseItem
     {

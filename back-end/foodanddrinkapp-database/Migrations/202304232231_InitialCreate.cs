@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace foodanddrinkapp_database.Migrations
+namespace FoodAndDrink.Database.Migrations
 {
     [Migration(202304232231)]
     public class _202304232231_InitialCreate : Migration

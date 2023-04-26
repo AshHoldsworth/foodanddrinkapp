@@ -1,4 +1,4 @@
-﻿namespace foodanddrinkapp_api.Models
+﻿namespace FoodAndDrink.Api.Models
 {
     public class Drink : Consumable
     {

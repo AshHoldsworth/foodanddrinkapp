@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using foodanddrinkapp_api.Models;
+using FoodAndDrink.Api.Models;
 
-namespace foodanddrinkapp_api.Controllers
+namespace FoodAndDrink.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
