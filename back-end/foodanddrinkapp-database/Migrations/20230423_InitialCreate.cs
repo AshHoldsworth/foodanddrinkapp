@@ -18,6 +18,13 @@ namespace foodanddrinkapp_database.Migrations
             Create.Table("Ingredients")
                 .WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable()
                 .WithColumn("Name").AsString().NotNullable();
+
+            Create.ForeignKey()
+                .FromTable("Consumables").ForeignColumn("Ingredients")
+                .ToTable("Ingredients").PrimaryColumn("Id");
+
+            Create.UniqueConstraint()
+                .OnTable("Consumables").Column("Ingredients_Id");
         }
 
         public override void Down()
