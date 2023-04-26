@@ -52,7 +52,7 @@ internal class Program
             .ConfigureRunner(rb => rb
                 .AddSqlServer()
                 .WithGlobalConnectionString(configuration["Database:ConnectionString"])
-                .ScanIn(typeof(_20230423_InitialCreate).Assembly).For.Migrations())
+                .ScanIn(typeof(_202304232231_InitialCreate).Assembly).For.Migrations())
             .AddLogging(lb => lb.AddFluentMigratorConsole())
             .Configure<RunnerOptions>(opt =>
             {

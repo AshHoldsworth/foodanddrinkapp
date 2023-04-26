@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foodanddrinkapp-backend", ".\foodanddrinkapp-api\foodanddrinkapp-backend.csproj", "{4BFD8D22-C0F6-437E-802C-26DC4A8EEC15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAndDrinkApp.Api", "foodanddrinkapp-api\FoodAndDrinkApp.Api.csproj", "{4BFD8D22-C0F6-437E-802C-26DC4A8EEC15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foodanddrinkapp-database", ".\foodanddrinkapp-database\foodanddrinkapp-database.csproj", "{0DE2EDB5-2222-4C41-96EA-AF34AEE3AA2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAndDrinkApp.Database", "foodanddrinkapp-database\FoodAndDrinkApp.Database.csproj", "{0DE2EDB5-2222-4C41-96EA-AF34AEE3AA2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
