@@ -1,11 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Data.SqlClient;
-using System;
-using System.IO;
 using Dapper;
 using FluentMigrator.Runner;
 using FluentMigrator.Runner.Initialization;
+using foodanddrinkapp_database.Migrations;
 
 internal class Program
 {
@@ -52,7 +51,8 @@ internal class Program
             .AddFluentMigratorCore()
             .ConfigureRunner(rb => rb
                 .AddSqlServer()
-                .WithGlobalConnectionString(configuration["Database:ConnectionString"]))
+                .WithGlobalConnectionString(configuration["Database:ConnectionString"])
+                .ScanIn(typeof(_20230423_InitialCreate).Assembly).For.Migrations())
             .AddLogging(lb => lb.AddFluentMigratorConsole())
             .Configure<RunnerOptions>(opt =>
             {
