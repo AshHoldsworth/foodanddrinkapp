@@ -37,7 +37,7 @@ export const ConsumableItem = ({
         alt="search"
         id="star"
         key={star}
-      />))}
+        />))}
         </p>
         <div id="item-image">
 

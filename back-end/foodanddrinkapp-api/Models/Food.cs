@@ -4,7 +4,7 @@
     {
         public string? type;
 
-        public Food(string name, int rating, List<Ingredient> ingredients) :base(name, rating, ingredients)
+        public Food(string name, int rating, List<Ingredient> ingredients, bool isHealthyOption) :base(name, rating, ingredients, isHealthyOption)
         {
             type = "food";
         }
