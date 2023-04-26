@@ -13,7 +13,7 @@ namespace foodanddrinkapp_database.Migrations
                 .WithColumn("Rating").AsInt32().NotNullable()
                 .WithColumn("IsHealthyOption").AsBoolean().NotNullable()
                 .WithColumn("DateAdded").AsDateTime().NotNullable()
-                .WithColumn("Ingredients").AsString().NotNullable();
+                .WithColumn("Ingredients").AsInt32().NotNullable();
 
             Create.Table("Ingredients")
                 .WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable()
@@ -24,7 +24,7 @@ namespace foodanddrinkapp_database.Migrations
                 .ToTable("Ingredients").PrimaryColumn("Id");
 
             Create.UniqueConstraint()
-                .OnTable("Consumables").Column("Ingredients_Id");
+                .OnTable("Consumables").Column("Ingredients");
         }
 
         public override void Down()
