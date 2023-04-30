@@ -11,8 +11,16 @@
     border-radius: 10px;
 }
 
+#item-stars {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
 #star {
-    width: 1vw;
+    width: 5%;
     margin: 2px;
 }
 
@@ -23,15 +31,12 @@
 
 #consumable-item h2 {
     margin: 0;
+    margin-bottom: 1vh;
+    margin-top: 3vh;
 }
 
-#consumable-item p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    margin-top: 2%;
-    margin-bottom: 5%;
+#consumable-item span {
+    display: none;
 }
 
 #item-image {
@@ -39,7 +44,27 @@
     width: 150px;
     background-color: #ffffff;
     border-radius: 10px;
-    margin-bottom: 7%;
+    margin-top: 1vh;
+}
+
+#information-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
+    margin-bottom: 2vh;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: center;
+}
+
+.information p {
+    margin: 0;
+    margin-bottom: 1vh;
 }
 
 
@@ -58,6 +83,57 @@
 @media screen and (max-width: 600px) {
     #consumable-item {
         grid-column: span 12;
-        flex-direction: row;
-    }   
+        display: grid;
+        margin: 2.5%;
+    }
+
+    #consumable-item h2 {
+        display: none;
+    }
+
+    #consumable-item span {
+        display: block;
+    }
+
+    #header {
+        display: flex;
+        grid-column: 1 / span 3;
+        grid-row: 1 / span 2;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        margin: 0 1vw 0 1vw;
+    }
+
+    #item-image {
+        grid-column: 4 / span 1;
+        grid-row: 1 / span 2;
+        margin: 1vh 0 1vh 0;
+        height: 125px;
+        width: 125px;
+    }
+
+    #information-section {
+        grid-column: 6 / span 6;
+        grid-row: 1 / span 1;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0;
+        font-size: 10pt;
+    }
+
+    #item-stars {
+        grid-column: 6 / span 6;
+        grid-row: 2 / span 1;
+        margin: 0;
+        width: 100%;
+        align-items: start;
+        height: 100%;
+    }
+
+    #star {
+        width: 7%;
+    }
 }

@@ -12,7 +12,10 @@ namespace FoodAndDrink.Database.Migrations
                 .WithColumn("Name").AsString().NotNullable()
                 .WithColumn("Rating").AsInt32().NotNullable()
                 .WithColumn("IsHealthyOption").AsBoolean().NotNullable()
-                .WithColumn("DateAdded").AsDateTime().NotNullable();
+                .WithColumn("Difficulty").AsInt32().NotNullable()
+                .WithColumn("Cost").AsInt32().NotNullable()
+                .WithColumn("Speed").AsInt32().NotNullable();
+           
 
             Create.Table("Ingredients")
                 .WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable()
