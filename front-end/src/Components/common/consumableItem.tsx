@@ -1,7 +1,8 @@
 import "../../css/consumableItem.css";
 import { IConsumable } from "../../@Types/IConsumables";
 import { IHeaderSize } from "../../@Types/IHeaderSize";
-import { Key } from "react";
+import { useCallback, Key } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ConsumableItem = ({
   consumable,
@@ -10,6 +11,10 @@ export const ConsumableItem = ({
   consumable: IConsumable;
   index: number;
 }) => {
+
+  const navigate = useNavigate()
+  const handleClick = useCallback(() => navigate(`/food/item/${consumable.id}`), []);
+
   let stars: any = [];
   for (let i: number = 0; i < consumable.rating; i++) {
     stars.push(i);
@@ -26,10 +31,9 @@ export const ConsumableItem = ({
   }
 
   return (
-    <div className="grid" id="consumable-item" key={index}>
+    <div className="grid" id="consumable-item" key={index} onClick={handleClick}>
       <div id="header">
         <h2 style={headerSize}>{consumable.name}</h2>
-        <span>{consumable.name}</span>
       </div>
       <div id="item-image"></div>
       <div id="item-stars">

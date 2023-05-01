@@ -36,9 +36,17 @@ namespace FoodAndDrink.Api
                 new Food("Lamb Steaks", 4, ingredientList1, true, 2, 3, 1)
             };
 
-        public static Food[] getFoodList()
+        public static Food[] GetFoodList()
         {
             return foodList;
+        }
+
+        public static Food GetFoodItem(int consumableId)
+        {
+            Console.Write($"ConsumableId: {consumableId}");
+            //Food consumable = foodList.Find(foodList, element => element.Id == consumableId);
+
+            return new Food("Cottage Pie", 3, ingredientList, false, 2, 1, 2);
         }
 	}
 }

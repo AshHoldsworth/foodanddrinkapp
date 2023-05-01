@@ -32,14 +32,15 @@ export const Food = () => {
   return (
     <>
       <div id="filter-bar" className=".grid">
-        <p>
-          Healthy Options:{" "}
+        <label className="container">
+          Healthy Options
           <input
             type="checkbox"
             checked={healthyOption}
             onChange={handleHealthyOption}
           />
-        </p>
+          <span className="checkmark"></span>
+        </label>
       </div>
       <div id="food-list" className="grid">
         {consumablesToDisplay ? (
@@ -47,7 +48,7 @@ export const Food = () => {
             <ConsumableItem consumable={consumable} index={index} />
           ))
         ) : (
-          <p>Nothing to display!</p>
+          <p>No Food to display!</p>
         )}
       </div>
     </>

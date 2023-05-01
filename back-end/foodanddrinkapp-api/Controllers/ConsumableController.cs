@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FoodAndDrink.Api.Models;
+using System;
 
 namespace FoodAndDrink.Api.Controllers
 {
@@ -16,7 +17,14 @@ namespace FoodAndDrink.Api.Controllers
         [HttpGet("food")]
         public Food[] GetFoodList()
         {
-            return MockData.getFoodList();
+            return MockData.GetFoodList();
+        }
+
+        [HttpGet("food/item/{consumableId}")]
+        public ActionResult<Food> GetFoodItem(int consumableId)
+        {
+            Console.Write($"ConsumableId: {consumableId}");
+            return MockData.GetFoodItem(consumableId);
         }
 
         [HttpGet("drink")]
