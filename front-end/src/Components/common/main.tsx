@@ -9,7 +9,7 @@ export const Main = () => {
       <Routes>
         <Route path="/" element={<Home />} />;
         <Route path="/food" element={<Food />} />;
-        <Route path="/food/item/:consumable" element={<ConsumablePage />} />
+        <Route path="/food/item/:consumableId" element={<ConsumablePage />} />
       </Routes>
     </>
   );

@@ -20,7 +20,7 @@ namespace FoodAndDrink.Api.Controllers
             return MockData.GetFoodList();
         }
 
-        [HttpGet("food/item/{consumableId}")]
+        [HttpGet("food/item/{consumableId:int}")]
         public ActionResult<Food> GetFoodItem(int consumableId)
         {
             Console.Write($"ConsumableId: {consumableId}");

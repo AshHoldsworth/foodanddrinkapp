@@ -14,7 +14,6 @@ export const Food = () => {
 
   apiClient.get("consumables/food").then((response: any) => {
     setConsumablesList(response);
-    console.log(healthyOption);
   });
 
   let consumablesToDisplay: IConsumable[] = [];
