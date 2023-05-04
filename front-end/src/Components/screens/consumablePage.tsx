@@ -9,12 +9,11 @@ export const ConsumablePage = () => {
     const [consumable, setConsumable] = useState<IConsumable>();
     
     const apiClient = new ApiClient(Global.context.urlPath);
-    apiClient.get(`food/item/${consumableId}`).then((response: any) => {
+    apiClient.get(`consumable/food/item/${consumableId}`).then((response: any) => {
         setConsumable(response);
-        console.log(consumable);
       });
     
     return <>
-    consumable page
+    {consumable}
     </>
 }

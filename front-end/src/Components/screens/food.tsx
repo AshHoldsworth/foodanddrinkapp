@@ -6,13 +6,13 @@ import { ConsumableItem } from "../common/consumableItem";
 import { IConsumable } from "../../@Types/IConsumables";
 
 export const Food = () => {
-  const [consumablesList, setConsumablesList] = useState<[]>();
+  const [consumablesList, setConsumablesList] = useState<IConsumable[]>();
   const [healthyOption, setHealthyOption] = useState<boolean>();
   const apiClient = new ApiClient(Global.context.urlPath);
 
   const handleHealthyOption = () => setHealthyOption(!healthyOption);
 
-  apiClient.get("consumables/food").then((response: any) => {
+  apiClient.get("consumable/food").then((response: any) => {
     setConsumablesList(response);
   });
 

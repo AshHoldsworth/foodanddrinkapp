@@ -6,7 +6,7 @@ namespace FoodAndDrink.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ConsumablesController : Controller
+    public class ConsumableController : Controller
     {
         [HttpGet]
         public string[] Index()
@@ -20,10 +20,9 @@ namespace FoodAndDrink.Api.Controllers
             return MockData.GetFoodList();
         }
 
-        [HttpGet("food/item/{consumableId:int}")]
+        [HttpGet("food/item/{consumableId}")]
         public ActionResult<Food> GetFoodItem(int consumableId)
         {
-            Console.Write($"ConsumableId: {consumableId}");
             return MockData.GetFoodItem(consumableId);
         }
 
