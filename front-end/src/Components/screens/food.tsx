@@ -1,5 +1,5 @@
 import "../../css/food.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ApiClient } from "../../api/ApiClient";
 import { Global } from "../../global";
 import { ConsumableItem } from "../common/consumableItem";
@@ -12,9 +12,13 @@ export const Food = () => {
 
   const handleHealthyOption = () => setHealthyOption(!healthyOption);
 
-  apiClient.get("consumable/food").then((response: any) => {
-    setConsumablesList(response);
-  });
+  useEffect(() => {
+    apiClient.get("consumable/food").then((response: any) => {
+      setConsumablesList(response);
+    });
+  },[])
+
+  console.log(consumablesList);
 
   let consumablesToDisplay: IConsumable[] = [];
 

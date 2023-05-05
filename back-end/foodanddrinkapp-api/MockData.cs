@@ -2,7 +2,7 @@
 
 namespace FoodAndDrink.Api
 {
-	public class MockData
+	public class Data
 	{
 		private static List<Ingredient> ingredientList = new List<Ingredient>
 			{
@@ -20,7 +20,7 @@ namespace FoodAndDrink.Api
 				new Ingredient("Bacon")
 			};
 
-		private static Food[] foodList = new Food[]
+		public Food[] foodList = new Food[]
 			{
 				new Food("Cottage Pie", 3, ingredientList, false, 2, 1, 2),
 				new Food("Chicken Burger", 4, ingredientList1, true, 1, 1, 1),
@@ -35,18 +35,27 @@ namespace FoodAndDrink.Api
 				new Food("Slow Cooker Gammon", 5, ingredientList, false, 1, 2, 3),
 				new Food("Lamb Steaks", 4, ingredientList1, true, 2, 3, 1)
 			};
-
-		public static Food[] GetFoodList()
-		{
-			return foodList;
-		}
-
-		public static Food GetFoodItem(int consumableId)
-		{
-			//Food consumable = foodList.Find(foodList, element => element.Id == consumableId);
-
-			return new Food("Cottage Pie", 3, ingredientList, false, 2, 1, 2);
-		}
 	}
+
+	public class MockData
+	{
+        public static Food[] GetFoodList()
+        {
+			Food[] foodList = new Data().foodList;
+            return foodList;
+        }
+
+        public static Food GetFoodItem(int consumableId)
+        {
+			var foodList = new Data().foodList;
+
+			Food consumable = Array.Find(foodList, element => element.Id == consumableId);
+
+			Console.WriteLine(consumableId);
+			Console.WriteLine(consumable);
+
+            return consumable;
+        }
+    }
 }
 
