@@ -1,7 +1,4 @@
 ﻿namespace FoodAndDrink.Api.Models.Interfaces
 {
-    public interface IDatabaseItem
-    {
-        public int SetNewId();
-    }
+    public interface IDatabaseItem {}
 }

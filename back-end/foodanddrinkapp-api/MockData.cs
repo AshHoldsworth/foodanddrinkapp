@@ -22,18 +22,18 @@ namespace FoodAndDrink.Api
 
 		public Food[] foodList = new Food[]
 			{
-				new Food("Cottage Pie", 3, ingredientList, false, 2, 1, 2),
-				new Food("Chicken Burger", 4, ingredientList1, true, 1, 1, 1),
-				new Food("Beef Burger", 2, ingredientList, true, 1, 1, 1),
-				new Food("Rocket Salad", 3, ingredientList1, true, 1, 1, 1),
-				new Food("Sausage Pasta", 5, ingredientList, false, 2, 2, 2),
-				new Food("Chicken & Sweet Pepper Pasta", 5, ingredientList1, false, 2, 2, 1),
-				new Food("Lasagna", 3, ingredientList, false, 2, 2, 3),
-				new Food("Cous Cous & Roasted Vegetables", 4, ingredientList1, true, 2, 1, 2),
-				new Food("Spaghetti Bolognese", 3, ingredientList, true, 2, 1, 2),
-				new Food("BBQ Chicken & Chips", 5, ingredientList1, true, 2, 2, 2),
-				new Food("Slow Cooker Gammon", 5, ingredientList, false, 1, 2, 3),
-				new Food("Lamb Steaks", 4, ingredientList1, true, 2, 3, 1)
+				new Food(1, "Cottage Pie", 3, ingredientList, false, 2, 1, 2),
+				new Food(2, "Chicken Burger", 4, ingredientList1, true, 1, 1, 1),
+				new Food(3, "Beef Burger", 2, ingredientList, true, 1, 1, 1),
+				new Food(4, "Rocket Salad", 3, ingredientList1, true, 1, 1, 1),
+				new Food(5, "Sausage Pasta", 5, ingredientList, false, 2, 2, 2),
+				new Food(6, "Chicken & Sweet Pepper Pasta", 5, ingredientList1, false, 2, 2, 1),
+				new Food(7, "Lasagna", 3, ingredientList, false, 2, 2, 3),
+				new Food(8, "Cous Cous & Roasted Vegetables", 4, ingredientList1, true, 2, 1, 2),
+				new Food(9, "Spaghetti Bolognese", 3, ingredientList, true, 2, 1, 2),
+				new Food(10, "BBQ Chicken & Chips", 5, ingredientList1, true, 2, 2, 2),
+				new Food(11, "Slow Cooker Gammon", 5, ingredientList, false, 1, 2, 3),
+				new Food(12, "Lamb Steaks", 4, ingredientList1, true, 2, 3, 1)
 			};
 	}
 
@@ -47,12 +47,16 @@ namespace FoodAndDrink.Api
 
         public static Food GetFoodItem(int consumableId)
         {
-			var foodList = new Data().foodList;
+			Food[] foodList = new Data().foodList;
 
 			Food consumable = Array.Find(foodList, element => element.Id == consumableId);
 
-			Console.WriteLine(consumableId);
-			Console.WriteLine(consumable);
+			foreach(Food food in foodList)
+			{
+				Console.WriteLine($"Food: {food.Id}, {food.Name}");
+			}
+            Console.WriteLine($"consumableId: {consumableId}");
+            Console.WriteLine($"consumable: {consumable.Name}");
 
             return consumable;
         }

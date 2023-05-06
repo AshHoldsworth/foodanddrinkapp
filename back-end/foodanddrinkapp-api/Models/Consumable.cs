@@ -14,21 +14,16 @@ namespace FoodAndDrink.Api.Models
         public int Cost { get; set; }
         public int Speed { get; set; }
 
-        public Consumable(string name, int rating, List<Ingredient> ingredients, bool isHealthyOption, int difficulty, int cost, int speed)
+        public Consumable(int id, string name, int rating, List<Ingredient> ingredients, bool isHealthyOption, int difficulty, int cost, int speed)
         {
+            Id = id;
             Name = name;
-            Id = SetNewId();
             Rating = rating;
             Ingredients = ingredients;
             IsHealthyOption = isHealthyOption;
             Difficulty = difficulty;
             Cost = cost;
             Speed = speed;
-        }
-
-        public int SetNewId()
-        {
-            return ++CurrentId;
         }
     }
 }
