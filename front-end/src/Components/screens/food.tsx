@@ -18,8 +18,6 @@ export const Food = () => {
     });
   },[])
 
-  console.log(consumablesList);
-
   let consumablesToDisplay: IConsumable[] = [];
 
   if (consumablesList) {

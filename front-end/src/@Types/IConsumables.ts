@@ -6,4 +6,5 @@ export interface IConsumable {
   difficulty: number;
   cost: number;
   speed: number;
+  ingredients: [];
 }
