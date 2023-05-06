@@ -48,15 +48,7 @@ namespace FoodAndDrink.Api
         public static Food GetFoodItem(int consumableId)
         {
 			Food[] foodList = new Data().foodList;
-
-			Food consumable = Array.Find(foodList, element => element.Id == consumableId);
-
-			foreach(Food food in foodList)
-			{
-				Console.WriteLine($"Food: {food.Id}, {food.Name}");
-			}
-            Console.WriteLine($"consumableId: {consumableId}");
-            Console.WriteLine($"consumable: {consumable.Name}");
+			Food consumable = Array.Find(foodList, food => food.Id == consumableId);
 
             return consumable;
         }
