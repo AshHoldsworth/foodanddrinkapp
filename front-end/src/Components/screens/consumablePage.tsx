@@ -5,7 +5,8 @@ import { Key, useEffect, useState } from "react";
 import { ApiClient } from "../../api/ApiClient";
 import { Global } from "../../global";
 import { IFocusedTab } from "../../@Types/IFocusedTab";
-import { ConsumableSubSection } from "../common/consumableSubSection";
+import { Ingredients } from "../common/ingredients";
+import { Instructions } from "../common/instructions";
 
 export const ConsumablePage = () => {
   const { consumableId } = useParams();
@@ -41,6 +42,8 @@ export const ConsumablePage = () => {
     setIngredientsTab(!ingredientsTab)
   }
 
+  console.log(consumable?.ingredients);
+
   return consumable ? <>
     <div className="grid" id="consumable-page">
       <div id="header"><h1>{consumable.name}</h1></div>
@@ -48,7 +51,7 @@ export const ConsumablePage = () => {
       <div id="rating">
         {stars.map((star: Key | null | undefined) => (
           <img
-            src={require("../../Assets/images/star.png")}
+            src={require("../../Assets/images/star-blue.png")}
             alt="search"
             id="star"
             key={star}
@@ -76,8 +79,8 @@ export const ConsumablePage = () => {
           <p>Instructions</p>
         </div>
       </div>
-      {ingredientsTab && <ConsumableSubSection data={consumable.ingredients} />}
-      {!ingredientsTab && <ConsumableSubSection data={"instructions"} />}
+      {ingredientsTab && <Ingredients ingredients={consumable.ingredients} />}
+      {!ingredientsTab && <Instructions instructions={["instructions", "instructions"]} />}
     </div>
   </> : null;
 };

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FoodAndDrink.Api.Models;
-using System;
 
 namespace FoodAndDrink.Api.Controllers
 {
