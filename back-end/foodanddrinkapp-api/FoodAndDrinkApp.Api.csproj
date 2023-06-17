@@ -18,10 +18,28 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="MongoDB.Bson" Version="2.19.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
+    <None Remove="Providers\" />
+    <None Remove="Configuration\" />
+    <None Remove="Documents\" />
+    <None Remove="Services\" />
+    <None Remove="Repositories\" />
+    <None Remove="Providers\Interfaces\" />
+    <None Remove="Services\Interfaces\" />
+    <None Remove="Services\Responses\" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Folder Include="Providers\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Documents\" />
+    <Folder Include="Services\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Providers\Interfaces\" />
+    <Folder Include="Services\Interfaces\" />
+    <Folder Include="Services\Responses\" />
+  </ItemGroup>
 </Project>

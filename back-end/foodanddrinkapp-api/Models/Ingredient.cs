@@ -1,22 +1,7 @@
-﻿using FoodAndDrink.Api.Models.Interfaces;
-
-namespace FoodAndDrink.Api.Models
+﻿namespace FoodAndDrink.Api.Models
 {
-    public class Ingredient : IDatabaseItem
+    public class Ingredient
     {
-        public static int CurrentId { get; set; }
-        public int Id { get; set; }
         public string Name { get; set; }
-
-        public Ingredient(string name)
-        {
-            Id = SetNewId();
-            Name = name;
-        }
-
-        public int SetNewId()
-        {
-            return ++CurrentId;
-        }
     }
 }

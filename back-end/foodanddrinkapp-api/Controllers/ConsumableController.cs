@@ -12,23 +12,5 @@ namespace FoodAndDrink.Api.Controllers
         {
             return new string[] { "Hello", "World" };
         }
-
-        [HttpGet("food")]
-        public Food[] GetFoodList()
-        {
-            return MockData.GetFoodList();
-        }
-
-        [HttpGet("food/item/{consumableId}")]
-        public ActionResult<Food> GetFoodItem(int consumableId)
-        {
-            return MockData.GetFoodItem(consumableId);
-        }
-
-        [HttpGet("drink")]
-        public string[] GetDrinkList()
-        {
-            return new string[] { "Drink", "List" };
-        }
     }
 }
