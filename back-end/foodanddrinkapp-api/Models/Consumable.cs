@@ -10,5 +10,6 @@
         public int Cost { get; set; }
         public int Speed { get; set; }
         public string Type { get; set; }
+        public string? Course { get; set; }
     }
 }

@@ -1,6 +1,5 @@
 import "../../css/food.css";
 import { useEffect, useState } from "react";
-import { ApiClient } from "../../api/ApiClient";
 import { Global } from "../../global";
 import { ConsumableItem } from "../common/consumableItem";
 import { IConsumable } from "../../@Types/IConsumable";
@@ -8,7 +7,7 @@ import { IConsumable } from "../../@Types/IConsumable";
 export const Food = () => {
   const [consumablesList, setConsumablesList] = useState<IConsumable[]>();
   const [healthyOption, setHealthyOption] = useState<boolean>();
-  const apiClient = new ApiClient(Global.context.urlPath);
+  const apiClient = Global.apiClient
 
   const handleHealthyOption = () => setHealthyOption(!healthyOption);
 
@@ -16,7 +15,7 @@ export const Food = () => {
     apiClient.get("consumables/food").then((response: any) => {
       setConsumablesList(response);
     });
-  },[])
+  },[apiClient])
 
   let consumablesToDisplay: IConsumable[] = [];
 

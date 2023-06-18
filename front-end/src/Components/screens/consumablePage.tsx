@@ -2,7 +2,6 @@ import "../../css/consumablePage.css";
 import { useParams } from "react-router-dom";
 import { IConsumable } from "../../@Types/IConsumable";
 import { Key, useEffect, useState } from "react";
-import { ApiClient } from "../../api/ApiClient";
 import { Global } from "../../global";
 import { IFocusedTab } from "../../@Types/IFocusedTab";
 import { Ingredients } from "../common/ingredients";
@@ -21,7 +20,7 @@ export const ConsumablePage = () => {
     color: "#123456",
   };
 
-  const apiClient = new ApiClient(Global.context.urlPath);
+  const apiClient = Global.apiClient;
 
   useEffect(() => {
     apiClient
@@ -29,7 +28,7 @@ export const ConsumablePage = () => {
       .then((response: any) => {
         setConsumable(JSON.parse(response));
       });
-  },[]);
+  },[apiClient, consumableId]);
 
   let stars: any = [];
   if (consumable) {
@@ -61,13 +60,13 @@ export const ConsumablePage = () => {
       <div id="information">
         <p>Difficulty: {consumable.difficulty === 1
               ? "Easy"
-              : consumable.difficulty == 2
+              : consumable.difficulty === 2
               ? "Medium"
               : "Slow"}</p>
-        <p>Cost: {consumable.cost === 1 ? "£" : consumable.cost == 2 ? "££" : "£££"}</p>
+        <p>Cost: {consumable.cost === 1 ? "£" : consumable.cost === 2 ? "££" : "£££"}</p>
         <p>Speed: {consumable.speed === 1
               ? "Quick"
-              : consumable.speed == 2
+              : consumable.speed === 2
               ? "Medium"
               : "Slow"}</p>
       </div>
