@@ -2,6 +2,11 @@ using FoodAndDrink.Providers;
 using FoodAndDrink.Configuration;
 using FoodAndDrink.Documents;
 using FoodAndDrink.Providers.Interfaces;
+using FoodAndDrink.Repositories.Interfaces;
+using FoodAndDrink.Repositories;
+using FoodAndDrink.Services.Interfaces;
+using FoodAndDrink;
+using FoodAndDrink.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,10 +19,15 @@ builder.Services.Configure<MongoDbConfig>(builder.Configuration.GetSection("Mong
 
 if (builder.Environment.IsDevelopment())
 {
-    builder.Services.AddSingleton<IMongoDbProvider<FoodDocument>, LocalMongoDbProvider<FoodDocument>>();
-    builder.Services.AddSingleton<IMongoDbProvider<DrinkDocument>, LocalMongoDbProvider<DrinkDocument>>();
+    builder.Services.AddSingleton<IMongoDbProvider<ConsumableDocument>, LocalMongoDbProvider<ConsumableDocument>>();
     builder.Services.AddSingleton<IMongoDbProvider<IngredientDocument>, LocalMongoDbProvider<IngredientDocument>>();
 }
+
+builder.Services.AddScoped<IConsumableRepository, ConsumableRepository>();
+builder.Services.AddScoped<IConsumableService, ConsumableService>();
+
+builder.Services.AddScoped<IIngredientRepository, IngredientRepository>();
+builder.Services.AddScoped<IIngredientService, IngredientService>();
 
 builder.Services.AddCors(options =>
 {

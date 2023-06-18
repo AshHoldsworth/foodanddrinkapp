@@ -7,7 +7,7 @@ namespace FoodAndDrink.Services
         public bool Success { get; set; }
         public string? ErrorMessage { get; set; }
 
-        public static ServiceResult<T> SuccessResult(T data)
+        public static ServiceResult<T> SuccessResult(T? data)
         {
             return new ServiceResult<T> { Data = data, Success = true };
         }

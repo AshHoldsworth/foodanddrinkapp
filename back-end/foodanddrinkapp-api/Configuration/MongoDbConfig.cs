@@ -6,6 +6,7 @@ namespace FoodAndDrink.Configuration
 		public string? ConnectionString { get; set; }
 		public string? Database { get; set; }
 		public string? ConsumablesCollection { get; set; }
+		public string? IngredientsCollection { get; set; }
 	}
 }
 
