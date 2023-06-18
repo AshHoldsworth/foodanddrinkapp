@@ -1,5 +1,5 @@
 import "../../css/consumableItem.css";
-import { IConsumable } from "../../@Types/IConsumables";
+import { IConsumable } from "../../@Types/IConsumable";
 import { IHeaderSize } from "../../@Types/IHeaderSize";
 import { useCallback, Key } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ export const ConsumableItem = ({
 }) => {
 
   const navigate = useNavigate()
-  const handleClick = useCallback(() => navigate(`/food/item/${consumable.id}`), []);
+  const handleClick = useCallback(() => navigate(`/food/${consumable.id}`), []);
 
   let stars: any = [];
   for (let i: number = 0; i < consumable.rating; i++) {

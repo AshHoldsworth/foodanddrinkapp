@@ -1,7 +1,10 @@
-﻿namespace FoodAndDrink.Api.Models
+﻿using System;
+using FoodAndDrink.Api.Models;
+
+namespace FoodAndDrink.Controllers.Requests
 {
-    public class Consumable
-    {
+	public class SubmitConsumableRequest
+	{
         public string Name { get; set; }
         public List<string> Ingredients { get; set; }
         public int Rating { get; set; }
@@ -10,6 +13,6 @@
         public int Cost { get; set; }
         public int Speed { get; set; }
         public string Type { get; set; }
-        public string? Course { get; set; }
     }
 }
+

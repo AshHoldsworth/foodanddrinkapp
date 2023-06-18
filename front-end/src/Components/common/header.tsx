@@ -31,7 +31,7 @@ export const Header = ({
 
   useEffect(() => {
     navigate(currentTab);
-  }, [currentTab]);
+  }, [currentTab, navigate]);
 
   const handleMenu = () => {
     if (navMenuDisplay === "none") {
@@ -54,18 +54,18 @@ export const Header = ({
           <nav>
             {pages.map((page) => (
               <>
-                <a
+                <span className="navanimation"
                   onClick={() => handleClick(`${page === "Home" ? "" : page}`)}
                   style={
-                    `/${page}` === currentTab
+                    page === currentTab
                       ? focusedTab
-                      : currentTab === "/" && page === "Home"
+                      : currentTab === "" && page === "Home"
                       ? focusedTab
                       : undefined
                   }
                 >
                   {page}
-                </a>{" "}
+                </span>{" "}
                 {pages.indexOf(page) === pages.length - 1 ? null : (
                   <span>|</span>
                 )}
@@ -92,7 +92,7 @@ export const Header = ({
           <div id="pop-up-background" onClick={() => handleMenu()}>
             <div id="nav-menu" onMouseLeave={() => handleMenu()}>
               {pages.map((page) => (
-                <a
+                <span className="navanimation"
                   onClick={() => handleClick(`/${page === "Home" ? "" : page}`)}
                   style={
                     `/${page}` === currentTab
@@ -103,7 +103,7 @@ export const Header = ({
                   }
                 >
                   {page}
-                </a>
+                </span>
               ))}
             </div>
           </div>

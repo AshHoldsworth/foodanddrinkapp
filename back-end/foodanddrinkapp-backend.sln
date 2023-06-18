@@ -5,8 +5,6 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAndDrinkApp.Api", "foodanddrinkapp-api\FoodAndDrinkApp.Api.csproj", "{4BFD8D22-C0F6-437E-802C-26DC4A8EEC15}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAndDrinkApp.Database", "foodanddrinkapp-database\FoodAndDrinkApp.Database.csproj", "{0DE2EDB5-2222-4C41-96EA-AF34AEE3AA2D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{4BFD8D22-C0F6-437E-802C-26DC4A8EEC15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BFD8D22-C0F6-437E-802C-26DC4A8EEC15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BFD8D22-C0F6-437E-802C-26DC4A8EEC15}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0DE2EDB5-2222-4C41-96EA-AF34AEE3AA2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DE2EDB5-2222-4C41-96EA-AF34AEE3AA2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DE2EDB5-2222-4C41-96EA-AF34AEE3AA2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DE2EDB5-2222-4C41-96EA-AF34AEE3AA2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

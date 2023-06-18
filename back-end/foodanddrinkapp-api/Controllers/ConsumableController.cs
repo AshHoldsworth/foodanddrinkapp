@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FoodAndDrink.Api.Models;
+using FoodAndDrink.Services.Interfaces;
+using FoodAndDrink.Controllers.Requests;
 
 namespace FoodAndDrink.Api.Controllers
 {
@@ -7,28 +9,64 @@ namespace FoodAndDrink.Api.Controllers
     [Route("[controller]")]
     public class ConsumableController : Controller
     {
+        private readonly IConsumableService _consumableService;
+
+        public ConsumableController(IConsumableService consumableService)
+        {
+            _consumableService = consumableService;
+        }
+
         [HttpGet]
-        public string[] Index()
+        [Route("/consumables/{type}")]
+        public async Task<IActionResult> GetConsumableList(string type)
         {
-            return new string[] { "Hello", "World" };
+            var result = await _consumableService.GetConsumableList(type);
+
+            if(result.Success == false)
+            {
+                return BadRequest(result.ErrorMessage);
+            }
+
+            return Ok(result.Data);
         }
 
-        [HttpGet("food")]
-        public Food[] GetFoodList()
+        [HttpGet]
+        [Route("/consumable/{id}")]
+        public async Task<IActionResult> GetConsumable(string id)
         {
-            return MockData.GetFoodList();
+            var result = await _consumableService.GetConsumable(id);
+
+            if (result.Success == false)
+            {
+                return BadRequest(result.ErrorMessage);
+            }
+
+            return Ok(result.Data);
         }
 
-        [HttpGet("food/item/{consumableId}")]
-        public ActionResult<Food> GetFoodItem(int consumableId)
+        [HttpPost]
+        public async Task<IActionResult> SubmitConsumable([FromBody] SubmitConsumableRequest request)
         {
-            return MockData.GetFoodItem(consumableId);
-        }
+            var consumable = new Consumable
+            {
+                Name = request.Name,
+                Ingredients = request.Ingredients,
+                Rating = request.Rating,
+                IsHealthyOption = request.IsHealthyOption,
+                Difficulty = request.Difficulty,
+                Cost = request.Cost,
+                Speed = request.Speed,
+                Type = request.Type
+            };
 
-        [HttpGet("drink")]
-        public string[] GetDrinkList()
-        {
-            return new string[] { "Drink", "List" };
+            var result = await _consumableService.SubmitConsumable(consumable);
+
+            if (result.Success == false)
+            {
+                return BadRequest(result.ErrorMessage);
+            }
+
+            return Ok();
         }
     }
 }
