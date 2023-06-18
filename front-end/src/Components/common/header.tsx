@@ -31,7 +31,7 @@ export const Header = ({
 
   useEffect(() => {
     navigate(currentTab);
-  }, [currentTab, navigate]);
+  }, [currentTab]);
 
   const handleMenu = () => {
     if (navMenuDisplay === "none") {
