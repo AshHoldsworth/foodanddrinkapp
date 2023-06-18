@@ -1,6 +1,6 @@
 import "../../css/consumablePage.css";
 import { useParams } from "react-router-dom";
-import { IConsumable } from "../../@Types/IConsumables";
+import { IConsumable } from "../../@Types/IConsumable";
 import { Key, useEffect, useState } from "react";
 import { ApiClient } from "../../api/ApiClient";
 import { Global } from "../../global";
@@ -25,7 +25,7 @@ export const ConsumablePage = () => {
 
   useEffect(() => {
     apiClient
-      .get(`consumable/food/item/${consumableId}`)
+      .get(`consumable/${consumableId}`)
       .then((response: any) => {
         setConsumable(JSON.parse(response));
       });

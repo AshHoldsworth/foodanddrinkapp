@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ApiClient } from "../../api/ApiClient";
 import { Global } from "../../global";
 import { ConsumableItem } from "../common/consumableItem";
-import { IConsumable } from "../../@Types/IConsumables";
+import { IConsumable } from "../../@Types/IConsumable";
 
 export const Food = () => {
   const [consumablesList, setConsumablesList] = useState<IConsumable[]>();
@@ -13,7 +13,7 @@ export const Food = () => {
   const handleHealthyOption = () => setHealthyOption(!healthyOption);
 
   useEffect(() => {
-    apiClient.get("consumable/food").then((response: any) => {
+    apiClient.get("consumables/food").then((response: any) => {
       setConsumablesList(response);
     });
   },[])

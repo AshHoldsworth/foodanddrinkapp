@@ -4,6 +4,8 @@ export const Instructions = ({instructions}: {instructions: any;}) => {
         console.log(instruction)
     }
     return <>
-        <div className="sub-section"></div>
+        <div id="sub-section">
+            <p>{}</p>
+        </div>
     </>
 }

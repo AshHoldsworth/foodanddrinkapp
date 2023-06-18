@@ -69,11 +69,11 @@ namespace FoodAndDrink
             {
                 Name = consumable.Name,
                 Ingredients = consumable.Ingredients,
-                Rating = consumable.Rating,
+                Rating = consumable.Rating > 5 ? 5 : consumable.Rating,
                 IsHealthyOption = consumable.IsHealthyOption,
-                Difficulty = consumable.Difficulty,
-                Cost = consumable.Cost,
-                Speed = consumable.Speed,
+                Difficulty = consumable.Difficulty > 3 ? 3 : consumable.Difficulty,
+                Cost = consumable.Cost > 3 ? 3 : consumable.Cost,
+                Speed = consumable.Speed > 3 ? 3 : consumable.Speed,
                 DateAdded = DateTime.UtcNow,
                 Type = consumable.Type
             };

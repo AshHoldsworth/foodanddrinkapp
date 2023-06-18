@@ -1,5 +1,5 @@
 export interface IConsumable {
-  id: number;
+  id: string;
   name: string;
   rating: number;
   isHealthyOption: boolean;
@@ -7,4 +7,5 @@ export interface IConsumable {
   cost: number;
   speed: number;
   ingredients: [];
+  type: string;
 }
