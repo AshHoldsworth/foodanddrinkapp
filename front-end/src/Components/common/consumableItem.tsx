@@ -52,7 +52,7 @@ export const ConsumableItem = ({
           <p>
             {consumable.difficulty === 1
               ? "Easy"
-              : consumable.difficulty == 2
+              : consumable.difficulty === 2
               ? "Medium"
               : "Slow"}
           </p>
@@ -61,7 +61,7 @@ export const ConsumableItem = ({
         <div className="information">
           <p>Cost</p>
           <p>
-            {consumable.cost === 1 ? "£" : consumable.cost == 2 ? "££" : "£££"}
+            {consumable.cost === 1 ? "£" : consumable.cost === 2 ? "££" : "£££"}
           </p>
         </div>
         <hr />
@@ -70,7 +70,7 @@ export const ConsumableItem = ({
           <p>
             {consumable.speed === 1
               ? "Quick"
-              : consumable.speed == 2
+              : consumable.speed === 2
               ? "Medium"
               : "Slow"}
           </p>
