@@ -1,5 +1,4 @@
-﻿using FoodAndDrink.Api.Models;
-using FoodAndDrink.Documents;
+﻿using FoodAndDrink.Documents;
 using FoodAndDrink.Providers.Interfaces;
 using FoodAndDrink.Repositories.Interfaces;
 using FoodAndDrink.Services.Responses;

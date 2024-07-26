@@ -65,7 +65,7 @@ namespace FoodAndDrink.Repositories
 
                 if (alreadyExists)
 				{
-                    return RepositoryResponse<ConsumableDocument>.FailureResult("Consumable already exists");
+                    return RepositoryResponse<ConsumableDocument>.FailureResult($"Consumable {document.Name} already exists");
                 }
 
 				collection.InsertOne(document);

@@ -1,10 +1,8 @@
-﻿using System;
-using FoodAndDrink.Api.Models;
+﻿using FoodAndDrink.Api.Models;
 using FoodAndDrink.Documents;
 using FoodAndDrink.Repositories.Interfaces;
 using FoodAndDrink.Services;
 using FoodAndDrink.Services.Interfaces;
-using FoodAndDrink.Services.Responses;
 
 namespace FoodAndDrink
 {
@@ -48,7 +46,7 @@ namespace FoodAndDrink
             try
             {
                 var document = ToConsumableDocument(consumable);
-                RepositoryResponse<ConsumableDocument> result = await _consumableRepository.SubmitConsumable(document);
+                var result = await _consumableRepository.SubmitConsumable(document);
 
                 if (!result.Success)
                 {
@@ -65,18 +63,28 @@ namespace FoodAndDrink
 
         private ConsumableDocument ToConsumableDocument(Consumable consumable)
         {
-            return new ConsumableDocument
+            
+            var doc = new ConsumableDocument
             {
                 Name = consumable.Name,
                 Ingredients = consumable.Ingredients,
-                Rating = consumable.Rating > 5 ? 5 : consumable.Rating,
                 IsHealthyOption = consumable.IsHealthyOption,
-                Difficulty = consumable.Difficulty > 3 ? 3 : consumable.Difficulty,
-                Cost = consumable.Cost > 3 ? 3 : consumable.Cost,
-                Speed = consumable.Speed > 3 ? 3 : consumable.Speed,
-                DateAdded = DateTime.UtcNow,
-                Type = consumable.Type
+                DateAdded = DateTime.UtcNow.Date
             };
+            
+            if (consumable.Rating > 5) doc.Rating = 5;
+            else if (consumable.Rating < 1) doc.Rating = 1;
+            
+            if (consumable.Cost > 3) doc.Cost = 3;
+            else if (consumable.Cost < 1) doc.Cost = 1;
+            
+            if (consumable.Speed > 3) doc.Speed = 3;
+            else if (consumable.Speed < 1) doc.Speed = 1;
+            
+            if (consumable.Difficulty > 3) doc.Difficulty = 3;
+            else if (consumable.Difficulty < 1) doc.Difficulty = 1;
+
+            return doc;
         }
     }
 }

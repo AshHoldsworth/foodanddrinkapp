@@ -1,5 +1,4 @@
-﻿using System;
-using FoodAndDrink.Api.Models;
+﻿using FoodAndDrink.Api.Models;
 using FoodAndDrink.Documents;
 using FoodAndDrink.Repositories.Interfaces;
 using FoodAndDrink.Services.Interfaces;
@@ -81,7 +80,6 @@ namespace FoodAndDrink.Services
             return new IngredientDocument
             {
                 Name = ingredient.Name,
-                Type = ingredient.Type,
                 DateAdded = DateTime.UtcNow
             };
         }

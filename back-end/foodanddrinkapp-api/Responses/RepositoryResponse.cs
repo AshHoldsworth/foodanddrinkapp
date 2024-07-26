@@ -1,7 +1,4 @@
-﻿
-using FoodAndDrink.Documents;
-
-namespace FoodAndDrink.Services.Responses
+﻿namespace FoodAndDrink.Services.Responses
 {
 	public class RepositoryResponse<T> where T : class
     {

@@ -1,7 +1,4 @@
-﻿using System;
-using FoodAndDrink.Api.Models;
-
-namespace FoodAndDrink.Controllers.Requests
+﻿namespace FoodAndDrink.Controllers.Requests
 {
 	public class SubmitIngredientRequest
 	{

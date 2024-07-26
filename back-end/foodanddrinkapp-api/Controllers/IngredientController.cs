@@ -49,8 +49,7 @@ namespace FoodAndDrink.Api.Controllers
         {
             var ingredient = new Ingredient
             {
-                Name = request.Name,
-                Type = request.Type
+                Name = request.Name
             };
 
             var result = await _ingredientService.SubmitIngredient(ingredient);

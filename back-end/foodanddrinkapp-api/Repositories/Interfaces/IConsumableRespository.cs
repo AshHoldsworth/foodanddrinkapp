@@ -1,5 +1,4 @@
-﻿using System;
-using FoodAndDrink.Documents;
+﻿using FoodAndDrink.Documents;
 using FoodAndDrink.Services.Responses;
 
 namespace FoodAndDrink.Repositories.Interfaces

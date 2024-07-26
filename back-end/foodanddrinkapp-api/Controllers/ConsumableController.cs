@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using FoodAndDrink.Api.Models;
+﻿using FoodAndDrink.Api.Models;
+using Microsoft.AspNetCore.Mvc;
 using FoodAndDrink.Services.Interfaces;
 using FoodAndDrink.Controllers.Requests;
 
@@ -26,7 +26,7 @@ namespace FoodAndDrink.Api.Controllers
             {
                 return BadRequest(result.ErrorMessage);
             }
-
+ 
             return Ok(result.Data);
         }
 
@@ -58,7 +58,7 @@ namespace FoodAndDrink.Api.Controllers
                 Speed = request.Speed,
                 Type = request.Type
             };
-
+            
             var result = await _consumableService.SubmitConsumable(consumable);
 
             if (result.Success == false)

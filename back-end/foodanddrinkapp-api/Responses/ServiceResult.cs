@@ -1,5 +1,4 @@
-﻿using System;
-namespace FoodAndDrink.Services
+﻿namespace FoodAndDrink.Services
 {
     public class ServiceResult<T> where T : class
     {

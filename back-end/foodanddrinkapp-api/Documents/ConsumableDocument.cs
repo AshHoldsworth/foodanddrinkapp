@@ -1,6 +1,4 @@
-﻿using System;
-using FoodAndDrink.Api.Models;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace FoodAndDrink.Documents

@@ -1,5 +1,4 @@
-﻿using System;
-using FoodAndDrink.Api.Models;
+﻿using FoodAndDrink.Api.Models;
 using FoodAndDrink.Documents;
 
 namespace FoodAndDrink.Services.Interfaces
