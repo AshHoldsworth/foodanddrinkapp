@@ -47,10 +47,7 @@ namespace FoodAndDrink.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> SubmitConsumable([FromBody] SubmitIngredientRequest request)
         {
-            var ingredient = new Ingredient
-            {
-                Name = request.Name
-            };
+            var ingredient = new Ingredient(request.Name);
 
             var result = await _ingredientService.SubmitIngredient(ingredient);
 

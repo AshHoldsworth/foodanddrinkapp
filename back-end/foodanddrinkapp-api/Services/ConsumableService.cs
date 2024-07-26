@@ -69,20 +69,13 @@ namespace FoodAndDrink
                 Name = consumable.Name,
                 Ingredients = consumable.Ingredients,
                 IsHealthyOption = consumable.IsHealthyOption,
-                DateAdded = DateTime.UtcNow.Date
+                DateAdded = DateTime.UtcNow.Date,
+                Rating = consumable.Rating,
+                Cost = consumable.Cost,
+                Speed = consumable.Speed,
+                Difficulty = consumable.Difficulty,
+                Type = consumable.Type
             };
-            
-            if (consumable.Rating > 5) doc.Rating = 5;
-            else if (consumable.Rating < 1) doc.Rating = 1;
-            
-            if (consumable.Cost > 3) doc.Cost = 3;
-            else if (consumable.Cost < 1) doc.Cost = 1;
-            
-            if (consumable.Speed > 3) doc.Speed = 3;
-            else if (consumable.Speed < 1) doc.Speed = 1;
-            
-            if (consumable.Difficulty > 3) doc.Difficulty = 3;
-            else if (consumable.Difficulty < 1) doc.Difficulty = 1;
 
             return doc;
         }

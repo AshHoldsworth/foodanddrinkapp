@@ -1,5 +1,4 @@
-﻿using FoodAndDrink.Api.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using FoodAndDrink.Services.Interfaces;
 using FoodAndDrink.Controllers.Requests;
 
@@ -47,19 +46,7 @@ namespace FoodAndDrink.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> SubmitConsumable([FromBody] SubmitConsumableRequest request)
         {
-            var consumable = new Consumable
-            {
-                Name = request.Name,
-                Ingredients = request.Ingredients,
-                Rating = request.Rating,
-                IsHealthyOption = request.IsHealthyOption,
-                Difficulty = request.Difficulty,
-                Cost = request.Cost,
-                Speed = request.Speed,
-                Type = request.Type
-            };
-            
-            var result = await _consumableService.SubmitConsumable(consumable);
+            var result = await _consumableService.SubmitConsumable(request);
 
             if (result.Success == false)
             {
