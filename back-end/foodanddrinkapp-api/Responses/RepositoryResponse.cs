@@ -6,7 +6,7 @@
         public bool Success { get; set; }
         public string? ErrorMessage { get; set; }
 
-        public static RepositoryResponse<T> SuccessResult(T? data)
+        public static RepositoryResponse<T> SuccessResult(T? data = null)
         {
             return new RepositoryResponse<T> { Data = data, Success = true };
         }

@@ -70,7 +70,7 @@ namespace FoodAndDrink.Repositories
 
 				collection.InsertOne(document);
 
-				return RepositoryResponse<ConsumableDocument>.SuccessResult(null);
+				return RepositoryResponse<ConsumableDocument>.SuccessResult();
 			}
 			catch (Exception ex)
 			{

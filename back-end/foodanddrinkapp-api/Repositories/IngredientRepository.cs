@@ -86,7 +86,7 @@ namespace FoodAndDrink.Repositories
 
                 await collection.InsertOneAsync(document);
 
-                return RepositoryResponse<IngredientDocument>.SuccessResult(null);
+                return RepositoryResponse<IngredientDocument>.SuccessResult();
             }
             catch (Exception ex)
             {
@@ -102,7 +102,7 @@ namespace FoodAndDrink.Repositories
                 
                 await collection.InsertManyAsync(documents);
                 
-                return RepositoryResponse<IngredientDocument>.SuccessResult(null);
+                return RepositoryResponse<IngredientDocument>.SuccessResult();
             }
             catch (Exception ex)
             {
