@@ -61,7 +61,7 @@ namespace FoodAndDrink.Repositories
 
                 var matchedDocument = await collection.Find(filter).FirstOrDefaultAsync();
 
-                var alreadyExists = matchedDocument == null ? false : true;
+                var alreadyExists = matchedDocument != null;
 
                 if (alreadyExists)
 				{

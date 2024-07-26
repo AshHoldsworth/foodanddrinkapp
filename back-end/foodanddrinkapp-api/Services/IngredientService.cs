@@ -2,7 +2,6 @@
 using FoodAndDrink.Documents;
 using FoodAndDrink.Repositories.Interfaces;
 using FoodAndDrink.Services.Interfaces;
-using FoodAndDrink.Services.Responses;
 
 namespace FoodAndDrink.Services
 {
@@ -60,7 +59,7 @@ namespace FoodAndDrink.Services
             try
             {
                 var document = ToIngredientDocument(ingredient);
-                RepositoryResponse<IngredientDocument> result = await _ingredientRepository.SubmitIngredient(document);
+                var result = await _ingredientRepository.SubmitIngredient(document);
 
                 if(!result.Success)
                 {
@@ -75,12 +74,33 @@ namespace FoodAndDrink.Services
             }
         }
 
+        public async Task<ServiceResult<Ingredient>> SubmitIngredients(List<string> ingredients)
+        {
+            try
+            {
+                var ingredientList = ingredients.Select(i => new Ingredient(i)).ToList();
+                var documents = ingredientList.Select(ToIngredientDocument).ToList();
+                var result = await _ingredientRepository.SubmitIngredients(documents);
+
+                if (!result.Success)
+                {
+                    return ServiceResult<Ingredient>.FailureResult($"Ingredient Service Failure: {result.ErrorMessage}");
+                }
+
+                return ServiceResult<Ingredient>.SuccessResult(null);
+            }
+            catch (Exception ex)
+            {
+                return ServiceResult<Ingredient>.FailureResult(ex.Message);
+            }
+        }
+
         private IngredientDocument ToIngredientDocument(Ingredient ingredient)
         {
             return new IngredientDocument
             {
                 Name = ingredient.Name,
-                DateAdded = DateTime.UtcNow
+                DateAdded = DateTime.UtcNow.Date
             };
         }
     }

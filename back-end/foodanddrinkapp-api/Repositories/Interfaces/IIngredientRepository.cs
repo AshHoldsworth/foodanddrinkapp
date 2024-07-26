@@ -9,5 +9,6 @@ namespace FoodAndDrink.Repositories.Interfaces
         public Task<RepositoryResponse<IngredientDocument>> GetIngredient(string id);
         public Task<RepositoryResponse<List<IngredientDocument>>> GetIngredientSelection(string[] ids);
         public Task<RepositoryResponse<IngredientDocument>> SubmitIngredient(IngredientDocument document);
-    }
+        public Task<RepositoryResponse<IngredientDocument>> SubmitIngredients(List<IngredientDocument> documents);
+	}
 }

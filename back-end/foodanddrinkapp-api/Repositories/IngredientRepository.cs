@@ -84,8 +84,24 @@ namespace FoodAndDrink.Repositories
                     return RepositoryResponse<IngredientDocument>.FailureResult("Ingredient already exists");
                 }
 
-                collection.InsertOne(document);
+                await collection.InsertOneAsync(document);
 
+                return RepositoryResponse<IngredientDocument>.SuccessResult(null);
+            }
+            catch (Exception ex)
+            {
+                return RepositoryResponse<IngredientDocument>.FailureResult(ex.Message);
+            }
+        }
+
+        public async Task<RepositoryResponse<IngredientDocument>> SubmitIngredients(List<IngredientDocument> documents)
+        {
+            try
+            {
+                var collection = await _mongoDbProvider.GetCollectionAsync("ingredients");
+                
+                await collection.InsertManyAsync(documents);
+                
                 return RepositoryResponse<IngredientDocument>.SuccessResult(null);
             }
             catch (Exception ex)

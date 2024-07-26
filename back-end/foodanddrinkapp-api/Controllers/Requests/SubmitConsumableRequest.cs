@@ -10,6 +10,7 @@
         public List<string>? Ingredients { get; set; }
         public int? Difficulty { get; set; }
         public int? Speed { get; set; }
+        public bool newIngredients { get; set; }
     }
 }
 

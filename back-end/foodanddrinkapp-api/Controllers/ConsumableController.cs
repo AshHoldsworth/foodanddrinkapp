@@ -9,10 +9,12 @@ namespace FoodAndDrink.Api.Controllers
     public class ConsumableController : Controller
     {
         private readonly IConsumableService _consumableService;
+        private readonly IIngredientService _ingredientService;
 
-        public ConsumableController(IConsumableService consumableService)
+        public ConsumableController(IConsumableService consumableService, IIngredientService ingredientService)
         {
             _consumableService = consumableService;
+            _ingredientService = ingredientService;
         }
 
         [HttpGet]
@@ -46,11 +48,14 @@ namespace FoodAndDrink.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> SubmitConsumable([FromBody] SubmitConsumableRequest request)
         {
-            var result = await _consumableService.SubmitConsumable(request);
+            var consumableResult = _consumableService.SubmitConsumable(request);
+            var ingredientResult = request.newIngredients ? _ingredientService.SubmitIngredients(request.Ingredients) : null;
+            
+            await Task.WhenAll(consumableResult, ingredientResult);
 
-            if (result.Success == false)
+            if (consumableResult.Result.Success == false)
             {
-                return BadRequest(result.ErrorMessage);
+                return BadRequest(consumableResult.Result.ErrorMessage);
             }
 
             return Ok();
