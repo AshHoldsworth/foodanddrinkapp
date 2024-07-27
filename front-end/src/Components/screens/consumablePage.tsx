@@ -41,8 +41,6 @@ export const ConsumablePage: React.FC = () => {
     setIngredientsTab(!ingredientsTab)
   }
 
-  console.log(consumable?.ingredients);
-
   return consumable ? <>
     <div className="grid" id="consumable-page">
       <div id="header"><h1>{consumable.name}</h1></div>

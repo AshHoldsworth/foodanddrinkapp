@@ -1,16 +1,15 @@
 interface Ingredients {
-    ingredients: [];
+    ingredients: string[];
 }
 
 export const Ingredients: React.FC<Ingredients> = ({ ingredients }) => {
-
-    for (const ingredient in ingredients) {
-        console.log(ingredient)
-    }
-
     return <>
         <div id="sub-section">
-            <p>{}</p>
+                <ul>
+                    {ingredients.map((ingredient: any, index: number) => {
+                        return <li key={index}>{ingredient}</li>
+                    })}
+                </ul>
         </div>
     </>
 }

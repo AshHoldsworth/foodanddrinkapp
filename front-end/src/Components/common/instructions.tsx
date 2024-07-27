@@ -3,13 +3,13 @@ interface IInstructions {
 }
 
 export const Instructions: React.FC<IInstructions> = ({ instructions }) => {
-
-    for (const instruction in instructions) {
-        console.log(instruction)
-    }
     return <>
         <div id="sub-section">
-            <p>{}</p>
+            <ol>
+                {instructions.map((instruction: any, index: number) => {
+                    return <li key={index}>{instruction}</li>
+                })}
+            </ol>
         </div>
     </>
 }
