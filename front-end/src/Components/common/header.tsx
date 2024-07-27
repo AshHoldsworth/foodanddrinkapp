@@ -20,10 +20,14 @@ export const Header: React.FC<IHeader> = ({ setCurrentPage }) => {
   const navigate = useNavigate();
   const currentTab = useContext(Page);
   const pages = Global.pages;
+
   const focusedTab: ITab = {
     backgroundColor: "#f6f6f6",
     color: "#123456",
+    border: "none",
+    borderBottom: "none"
   };
+
   const handleClick = (page: string): void => {
     setCurrentPage(page);
     setNavMenuDisplay("none");
@@ -40,6 +44,7 @@ export const Header: React.FC<IHeader> = ({ setCurrentPage }) => {
       setNavMenuDisplay("none");
     }
   };
+  
   useEffect(() => {
     document.getElementById("nav-menu")!.style.display = navMenuDisplay;
     document.getElementById("pop-up-background")!.style.display =

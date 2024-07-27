@@ -28,6 +28,7 @@
     grid-column: 6 / span 4;
     grid-row: 2;
     font-size: 16pt;
+    padding-left: 3%;
 }
 
 #consumable-page #tabs {

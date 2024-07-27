@@ -5,7 +5,7 @@ import "./css/global.css";
 const Page = createContext<string>("/");
 
 export const App = () => {
-  const [currentPage, setCurrentPage] = useState("/");
+  const [currentPage, setCurrentPage] = useState("");
 
   return (
     <div className="App">
