@@ -10,7 +10,7 @@ namespace FoodAndDrink.Documents
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string Name { get; set; }
-        public List<Ingredient>? Ingredients { get; set; }
+        public List<string>? Ingredients { get; set; }
         public int Rating { get; set; }
         public bool IsHealthyOption { get; set; }
         public int? Difficulty { get; set; }

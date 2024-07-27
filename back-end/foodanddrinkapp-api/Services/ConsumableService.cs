@@ -79,7 +79,7 @@ namespace FoodAndDrink
             var doc = new ConsumableDocument
             {
                 Name = consumable.Name,
-                Ingredients = consumable.Ingredients,
+                Ingredients = consumable.Ingredients.Select(i => i.Name).ToList(),
                 IsHealthyOption = consumable.IsHealthyOption,
                 DateAdded = DateTime.UtcNow.Date,
                 Rating = consumable.Rating,
