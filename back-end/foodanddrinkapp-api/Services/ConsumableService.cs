@@ -20,6 +20,12 @@ namespace FoodAndDrink
             try
             {
                 var consumables = await _consumableRepository.GetConsumableList(type);
+                
+                if (!consumables.Success)
+                {
+                    return ServiceResult<List<ConsumableDocument>>.FailureResult($"Consumable Service Failure: {consumables.ErrorMessage}");
+                }
+                
                 return ServiceResult<List<ConsumableDocument>>.SuccessResult(consumables.Data);
             }
             catch (Exception ex)
@@ -33,6 +39,12 @@ namespace FoodAndDrink
             try
             {
                 var consumable = await _consumableRepository.GetConsumable(id);
+
+                if (!consumable.Success)
+                {
+                    return ServiceResult<ConsumableDocument>.FailureResult($"Consumable Service Failure: {consumable.ErrorMessage}");
+                }
+                
                 return ServiceResult<ConsumableDocument>.SuccessResult(consumable.Data);
             }
             catch (Exception ex)
@@ -53,7 +65,7 @@ namespace FoodAndDrink
                     return ServiceResult<ConsumableDocument>.FailureResult($"Consumable Service Failure: {result.ErrorMessage}");
                 }
 
-                return ServiceResult<ConsumableDocument>.SuccessResult(null);
+                return ServiceResult<ConsumableDocument>.SuccessResult();
             }
             catch (Exception ex)
             {

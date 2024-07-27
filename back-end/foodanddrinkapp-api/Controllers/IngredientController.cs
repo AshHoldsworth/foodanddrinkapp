@@ -24,6 +24,7 @@ namespace FoodAndDrink.Api.Controllers
 
             if(result.Success == false)
             {
+                Console.WriteLine(result.ErrorMessage);
                 return BadRequest(result.ErrorMessage);
             }
 
@@ -38,6 +39,7 @@ namespace FoodAndDrink.Api.Controllers
 
             if (result.Success == false)
             {
+                Console.WriteLine(result.ErrorMessage);
                 return BadRequest(result.ErrorMessage);
             }
 
@@ -53,6 +55,7 @@ namespace FoodAndDrink.Api.Controllers
 
             if (result.Success == false)
             {
+                Console.WriteLine(result.ErrorMessage);
                 return BadRequest(result.ErrorMessage);
             }
 

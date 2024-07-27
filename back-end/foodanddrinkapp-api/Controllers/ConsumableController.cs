@@ -23,8 +23,9 @@ namespace FoodAndDrink.Api.Controllers
         {
             var result = await _consumableService.GetConsumableList(type);
 
-            if(result.Success == false)
+            if (result.Success == false)
             {
+                Console.WriteLine(result.ErrorMessage);
                 return BadRequest(result.ErrorMessage);
             }
  
@@ -39,6 +40,7 @@ namespace FoodAndDrink.Api.Controllers
 
             if (result.Success == false)
             {
+                Console.WriteLine(result.ErrorMessage);
                 return BadRequest(result.ErrorMessage);
             }
 
@@ -55,6 +57,7 @@ namespace FoodAndDrink.Api.Controllers
 
             if (consumableResult.Result.Success == false)
             {
+                Console.WriteLine(consumableResult.Result.ErrorMessage);
                 return BadRequest(consumableResult.Result.ErrorMessage);
             }
 

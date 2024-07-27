@@ -18,8 +18,14 @@ namespace FoodAndDrink.Services
 		{
 			try
 			{
-				var ingredients = await _ingredientRepository.GetIngredientList();
-				return ServiceResult<List<IngredientDocument>>.SuccessResult(ingredients.Data);
+				var result = await _ingredientRepository.GetIngredientList();
+                
+                if (!result.Success)
+                {
+                    return ServiceResult<List<IngredientDocument>>.FailureResult($"Ingredient Service Failure: {result.ErrorMessage}");    
+                }
+                
+				return ServiceResult<List<IngredientDocument>>.SuccessResult(result.Data);
 			}
 			catch (Exception ex)
 			{
@@ -31,8 +37,15 @@ namespace FoodAndDrink.Services
         {
             try
             {
-                var ingredient = await _ingredientRepository.GetIngredient(id);
-                return ServiceResult<IngredientDocument>.SuccessResult(ingredient.Data);
+                var result = await _ingredientRepository.GetIngredient(id);
+                
+                if (!result.Success)
+                {
+                    return ServiceResult<IngredientDocument>.FailureResult($"Ingredient Service Failure: {result.ErrorMessage}");
+                }
+                
+                
+                return ServiceResult<IngredientDocument>.SuccessResult(result.Data);
             }
             catch (Exception ex)
             {
@@ -44,8 +57,14 @@ namespace FoodAndDrink.Services
         {
             try
             {
-                var ingredients = await _ingredientRepository.GetIngredientSelection(ids);
-                return ServiceResult<List<IngredientDocument>>.SuccessResult(ingredients.Data);
+                var result = await _ingredientRepository.GetIngredientSelection(ids);
+
+                if (!result.Success)
+                {
+                    return ServiceResult<List<IngredientDocument>>.FailureResult($"Ingredient Service Failure: {result.ErrorMessage}");    
+                }
+                
+                return ServiceResult<List<IngredientDocument>>.SuccessResult(result.Data);
             }
             catch (Exception ex)
             {
@@ -87,7 +106,7 @@ namespace FoodAndDrink.Services
                     return ServiceResult<Ingredient>.FailureResult($"Ingredient Service Failure: {result.ErrorMessage}");
                 }
 
-                return ServiceResult<Ingredient>.SuccessResult(null);
+                return ServiceResult<Ingredient>.SuccessResult();
             }
             catch (Exception ex)
             {
