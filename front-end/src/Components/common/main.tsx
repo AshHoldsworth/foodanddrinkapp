@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import { Home } from "../screens/home";
-import { Food } from "../screens/food";
-import { ConsumablePage } from "../screens/consumablePage";
-import { Ingredients } from "../screens/ingredients";
+import { Home } from "../screens/Home";
+import { Food } from "../screens/Food";
+import { ConsumablePage } from "../screens/ConsumablePage";
+import { Ingredients } from "../screens/Ingredients";
 
-export const Main = () => {
+export const Main: React.FC = () => {
   return (
     <>
       <Routes>

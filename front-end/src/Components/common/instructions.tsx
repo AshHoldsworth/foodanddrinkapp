@@ -1,4 +1,8 @@
-export const Instructions = ({instructions}: {instructions: any;}) => {
+interface IInstructions {
+    instructions: string[];
+}
+
+export const Instructions: React.FC<IInstructions> = ({ instructions }) => {
 
     for (const instruction in instructions) {
         console.log(instruction)

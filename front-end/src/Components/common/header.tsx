@@ -11,11 +11,11 @@ import { IFocusedTab } from "../../@Types/IFocusedTab";
 import { Page } from "../../App";
 import "../../css/header.css";
 
-export const Header = ({
-  setCurrentPage,
-}: {
+interface IHeader {
   setCurrentPage: Dispatch<SetStateAction<string>>;
-}) => {
+}
+
+export const Header: React.FC<IHeader> = ({ setCurrentPage }) => {
   const [navMenuDisplay, setNavMenuDisplay] = useState("none");
   const navigate = useNavigate();
   const currentTab = useContext(Page);

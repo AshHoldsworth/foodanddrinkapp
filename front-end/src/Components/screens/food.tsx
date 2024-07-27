@@ -1,10 +1,10 @@
 import "../../css/food.css";
 import { useEffect, useState } from "react";
 import { Global } from "../../global";
-import { ConsumableItem } from "../common/consumableItem";
+import { ConsumableItem } from "../common/ConsumableItem";
 import { IConsumable } from "../../@Types/IConsumable";
 
-export const Food = () => {
+export const Food: React.FC = () => {
   const [consumablesList, setConsumablesList] = useState<IConsumable[]>();
   const [healthyOption, setHealthyOption] = useState<boolean>();
   const apiClient = Global.apiClient

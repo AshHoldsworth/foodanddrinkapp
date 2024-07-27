@@ -1,7 +1,6 @@
-import React from "react";
 import "../../css/home.css";
 
-export const Home = () => {
+export const Home: React.FC = () => {
   return (
     <>
       <main className="grid">

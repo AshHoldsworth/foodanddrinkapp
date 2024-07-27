@@ -4,14 +4,12 @@ import { IHeaderSize } from "../../@Types/IHeaderSize";
 import { useCallback, Key } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const ConsumableItem = ({
-  consumable,
-  index,
-}: {
+interface IConsumableItem {
   consumable: IConsumable;
   index: number;
-}) => {
+}
 
+export const ConsumableItem: React.FC<IConsumableItem> = ({ consumable, index }) => {
   const navigate = useNavigate()
   const handleClick = useCallback(() => navigate(`/food/${consumable.id}`), []);
 

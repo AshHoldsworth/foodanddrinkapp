@@ -4,10 +4,10 @@ import { IConsumable } from "../../@Types/IConsumable";
 import { Key, useEffect, useState } from "react";
 import { Global } from "../../global";
 import { IFocusedTab } from "../../@Types/IFocusedTab";
-import { Ingredients } from "../common/ingredients";
-import { Instructions } from "../common/instructions";
+import { Ingredients } from "../common/Ingredients";
+import { Instructions } from "../common/Instructions";
 
-export const ConsumablePage = () => {
+export const ConsumablePage: React.FC = () => {
   const { consumableId } = useParams();
   const [consumable, setConsumable] = useState<IConsumable>();
   const [ingredientsTab, setIngredientsTab] = useState<Boolean>(true);

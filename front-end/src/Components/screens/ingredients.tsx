@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { IIngredient } from "../../@Types/IIngredient";
 import { Global } from "../../global";
 
-export const Ingredients = () => {
+export const Ingredients: React.FC = () => {
   const [ingredientsList, setIngredientsList] = useState<IIngredient[]>();
   const apiClient = Global.apiClient;
 

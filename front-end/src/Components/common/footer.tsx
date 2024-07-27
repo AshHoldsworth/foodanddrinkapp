@@ -1,7 +1,6 @@
-import React from "react";
-import "../../CSS/footer.css";
+import "../../css/footer.css";
 
-export const Footer = () => {
+export const Footer: React.FC = () => {
   return (
     <>
       <div className="footerbackground">
