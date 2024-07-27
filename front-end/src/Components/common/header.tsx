@@ -7,7 +7,7 @@ import {
   SetStateAction,
 } from "react";
 import { Global } from "../../global";
-import { IFocusedTab } from "../../@Types/IFocusedTab";
+import { ITab } from "../../@Types/IFocusedTab";
 import { Page } from "../../App";
 import "../../css/header.css";
 
@@ -20,7 +20,7 @@ export const Header: React.FC<IHeader> = ({ setCurrentPage }) => {
   const navigate = useNavigate();
   const currentTab = useContext(Page);
   const pages = Global.pages;
-  const focusedTab: IFocusedTab = {
+  const focusedTab: ITab = {
     backgroundColor: "#f6f6f6",
     color: "#123456",
   };

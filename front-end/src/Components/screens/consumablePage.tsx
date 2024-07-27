@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { IConsumable } from "../../@Types/IConsumable";
 import { Key, useEffect, useState } from "react";
 import { Global } from "../../global";
-import { IFocusedTab } from "../../@Types/IFocusedTab";
+import { ITab } from "../../@Types/IFocusedTab";
 import { Ingredients } from "../common/Ingredients";
 import { Instructions } from "../common/Instructions";
 
@@ -11,13 +11,18 @@ export const ConsumablePage: React.FC = () => {
   const { consumableId } = useParams();
   const [consumable, setConsumable] = useState<IConsumable>();
   const [ingredientsTab, setIngredientsTab] = useState<Boolean>(true);
-  const focusedTab: IFocusedTab = {
+ 
+  const focusedTab: ITab = {
     backgroundColor: "#123456",
     color: "#ffffff",
+    border: undefined,
+    borderBottom: undefined
   };
-  const unfocusedTab: IFocusedTab = {
+  const unfocusedTab: ITab = {
     backgroundColor: "#ffffff",
     color: "#123456",
+    border: "2px solid #123456",
+    borderBottom: "none"
   };
 
   const apiClient = Global.apiClient;

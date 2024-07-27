@@ -31,7 +31,7 @@
 }
 
 #consumable-page #tabs {
-    grid-column: 3 / span 2;
+    grid-column: 3 / span 3;
     grid-row: 3;
     display: flex;
     justify-content: space-between;
