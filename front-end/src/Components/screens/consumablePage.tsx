@@ -2,15 +2,16 @@ import "../../css/consumablePage.css";
 import { useParams } from "react-router-dom";
 import { IConsumable } from "../../@Types/IConsumable";
 import { Key, useEffect, useState } from "react";
-import { Global } from "../../global";
 import { ITab } from "../../@Types/IFocusedTab";
 import { Ingredients } from "../common/Ingredients";
 import { Instructions } from "../common/Instructions";
+import { IApiLoader, useApiLoader } from "../../hooks/useApiLoader";
+import { LoadStatus } from "../loaders/ApiLoader";
 
 export const ConsumablePage: React.FC = () => {
   const { consumableId } = useParams();
-  const [consumable, setConsumable] = useState<IConsumable>();
   const [ingredientsTab, setIngredientsTab] = useState<Boolean>(true);
+  const [response, setResponse] = useState<IApiLoader<IConsumable>>({ data: undefined, status: LoadStatus.Idle, error: null });
  
   const focusedTab: ITab = {
     backgroundColor: "#123456",
@@ -25,17 +26,11 @@ export const ConsumablePage: React.FC = () => {
     borderBottom: "none"
   };
 
-  const apiClient = Global.apiClient;
+  useApiLoader<IConsumable>(`consumable/${consumableId}`).then(response => setResponse(response));
 
-  useEffect(() => {
-    apiClient
-      .get(`consumable/${consumableId}`)
-      .then((response: any) => {
-        setConsumable(JSON.parse(response));
-      });
-  },[apiClient, consumableId]);
+  const consumable = response.data;
 
-  let stars: any = [];
+  let stars: number[] = [];
   if (consumable) {
     for (let i: number = 0; i < consumable.rating; i++) {
       stars.push(i);

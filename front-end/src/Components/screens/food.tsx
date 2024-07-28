@@ -1,56 +1,43 @@
-import "../../css/food.css";
-import { useEffect, useState } from "react";
-import { Global } from "../../global";
-import { ConsumableItem } from "../common/ConsumableItem";
-import { IConsumable } from "../../@Types/IConsumable";
+import "../../css/food.css"
+import { useState } from "react"
+import { IConsumable } from "../../@Types/IConsumable"
+import { IApiLoader, useApiLoader } from "../../hooks/useApiLoader"
+import { ApiLoader } from "../loaders/ApiLoader"
+import { FoodDisplay } from "./parts/FoodDisplay"
 
 export const Food: React.FC = () => {
-  const [consumablesList, setConsumablesList] = useState<IConsumable[]>();
-  const [healthyOption, setHealthyOption] = useState<boolean>();
-  const apiClient = Global.apiClient
+    const [healthyOption, setHealthyOption] = useState<boolean>(false)
 
-  const handleHealthyOption = () => setHealthyOption(!healthyOption);
+    console.log("Food")
+    const endpoint: string = "consumables/food"
+    const response: IApiLoader<IConsumable[]> = useApiLoader<IConsumable[]>(endpoint);
 
-  useEffect(() => {
-    apiClient.get("consumables/food").then((response: any) => {
-      setConsumablesList(response);
-    });
-  },[apiClient])
+    const handleHealthyOption = () => setHealthyOption(!healthyOption)
 
-  let consumablesToDisplay: IConsumable[] = [];
+    let consumablesToDisplay: IConsumable[] = []
 
-  if (consumablesList) {
-    JSON.parse(consumablesList.toString()).map((consumable: IConsumable) =>
-      healthyOption && consumable.isHealthyOption
-        ? consumablesToDisplay.push(consumable)
-        : !healthyOption
-        ? consumablesToDisplay.push(consumable)
-        : null
-    );
-  }
+    console.log(response.data)
 
-  return (
-    <>
-      <div id="filter-bar" className=".grid">
-        <label className="container">
-          Healthy Options
-          <input
-            type="checkbox"
-            checked={healthyOption}
-            onChange={handleHealthyOption}
-          />
-          <span className="checkmark"></span>
-        </label>
-      </div>
-      <div id="food-list" className="grid">
-        {consumablesToDisplay ? (
-          consumablesToDisplay.map((consumable: IConsumable, index: number) => (
-            <ConsumableItem consumable={consumable} index={index} />
-          ))
-        ) : (
-          <p>No Food to display!</p>
-        )}
-      </div>
-    </>
-  );
-};
+    if (response.data) {
+        response.data.map((consumable: IConsumable) =>
+            healthyOption && consumable.isHealthyOption
+                ? consumablesToDisplay.push(consumable)
+                : !healthyOption
+                ? consumablesToDisplay.push(consumable)
+                : null
+        )
+    }
+
+    return (
+        <ApiLoader
+            label="Consumables List"
+            loadStatus={response.status}
+            errorMessage={response.error}>
+            <FoodDisplay
+                consumablesToDisplay={consumablesToDisplay}
+                healthyOption={healthyOption}
+                handleHealthyOption={handleHealthyOption}
+            />
+        </ApiLoader>
+    )
+}

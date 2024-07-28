@@ -13,7 +13,7 @@ export const ConsumableItem: React.FC<IConsumableItem> = ({ consumable, index })
   const navigate = useNavigate()
   const handleClick = useCallback(() => navigate(`/food/${consumable.id}`), []);
 
-  let stars: any = [];
+  let stars: number[] = [];
   for (let i: number = 0; i < consumable.rating; i++) {
     stars.push(i);
   }

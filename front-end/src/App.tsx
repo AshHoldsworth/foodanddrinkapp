@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { Header } from "./Components/common/Header";
 import { Main } from "./Components/common/Main";
 import "./css/global.css";
+
 const Page = createContext<string>("/");
 
 export const App = () => {

@@ -57,9 +57,9 @@ export const Header: React.FC<IHeader> = ({ setCurrentPage }) => {
         <header className="grid">
           <h1>Food and Drink App</h1>
           <nav>
-            {pages.map((page) => (
+            {pages.map((page, index) => (
               <>
-                <span className="navanimation"
+                <span className="navanimation" key={index}
                   onClick={() => handleClick(`${page === "Home" ? "" : page}`)}
                   style={
                     page === currentTab
@@ -72,7 +72,7 @@ export const Header: React.FC<IHeader> = ({ setCurrentPage }) => {
                   {page}
                 </span>{" "}
                 {pages.indexOf(page) === pages.length - 1 ? null : (
-                  <span>|</span>
+                  <span key={page}>|</span>
                 )}
               </>
             ))}
@@ -96,8 +96,8 @@ export const Header: React.FC<IHeader> = ({ setCurrentPage }) => {
           />
           <div id="pop-up-background" onClick={() => handleMenu()}>
             <div id="nav-menu" onMouseLeave={() => handleMenu()}>
-              {pages.map((page) => (
-                <span className="navanimation"
+              {pages.map((page, index) => (
+                <span className="navanimation" key={index}
                   onClick={() => handleClick(`/${page === "Home" ? "" : page}`)}
                   style={
                     `/${page}` === currentTab
