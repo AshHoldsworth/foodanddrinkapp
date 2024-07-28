@@ -27,9 +27,9 @@ export const ApiLoader: React.FC<IApiLoader> = ({ label, size, loadStatus, empty
             return empty ? <>{empty}</> : <p>No {label} to display!</p>
         case LoadStatus.Loading:
         case LoadStatus.Idle:
-            return Loading({})
+            return <Loading />
         case LoadStatus.Error:
         default:
-            return ErrorBanner({ label, errorMessage: errorMessage || 'An error occurred' })
+            return <ErrorBanner label={label} errorMessage={errorMessage || 'An error occurred'} />
     }
 }

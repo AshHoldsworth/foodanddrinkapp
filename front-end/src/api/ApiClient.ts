@@ -25,7 +25,8 @@ export class ApiClient {
             }
         }
         catch (error) {
-            throw new Error();
+            console.error(error);
+            return { status: LoadStatus.Error, data: error as t };
         }
     }
 
