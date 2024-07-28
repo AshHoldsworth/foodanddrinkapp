@@ -8,15 +8,12 @@ import { FoodDisplay } from "./parts/FoodDisplay"
 export const Food: React.FC = () => {
     const [healthyOption, setHealthyOption] = useState<boolean>(false)
 
-    console.log("Food")
     const endpoint: string = "consumables/food"
     const response: IApiLoader<IConsumable[]> = useApiLoader<IConsumable[]>(endpoint);
 
     const handleHealthyOption = () => setHealthyOption(!healthyOption)
 
     let consumablesToDisplay: IConsumable[] = []
-
-    console.log(response.data)
 
     if (response.data) {
         response.data.map((consumable: IConsumable) =>

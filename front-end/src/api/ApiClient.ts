@@ -13,7 +13,6 @@ export class ApiClient {
     }
 
     public async get<t>(endpoint: string): Promise<IApiResponse<t>> {
-        console.log("ApiClient");
         try {
             const response = await fetch(`${this.urlPath}${endpoint}`);
             switch (response.status) {
