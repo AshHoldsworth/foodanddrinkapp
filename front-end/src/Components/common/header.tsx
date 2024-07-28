@@ -83,13 +83,13 @@ export const Header: React.FC<IHeader> = ({ setCurrentPage }) => {
             maxLength={40}
           />
           <img
-            src={require("../../Assets/images/search-white.png")}
+            src={require("../../assets/images/search-white.png")}
             alt="search"
             id="nav-search-icon"
           />
 
           <img
-            src={require("../../Assets/images/burger-menu.png")}
+            src={require("../../assets/images/burger-menu.png")}
             alt="menu"
             id="nav-menu-icon"
             onClick={() => handleMenu()}

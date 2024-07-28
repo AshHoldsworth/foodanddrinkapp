@@ -13,18 +13,22 @@ interface IApiLoader {
     label : string
 	size?: 'sm' | 'md' | 'lg' | 'xl' | undefined
 	loadStatus: LoadStatus
-	empty?: JSX.Element | null
 	errorMessage?: string | null
 	fullscreen?: boolean
+    emptyCheck: any
+    empty?: JSX.Element
 	children: React.ReactNode
 }
 
-export const ApiLoader: React.FC<IApiLoader> = ({ label, size, loadStatus, empty, errorMessage, fullscreen, children }) => {
+export const ApiLoader: React.FC<IApiLoader> = ({ label, size, loadStatus, errorMessage, fullscreen, emptyCheck, empty, children }) => {
+
+    const isEmpty: boolean = emptyCheck.length === 0 || emptyCheck === null || emptyCheck === undefined
+
     switch (loadStatus) {
         case LoadStatus.Ready:
-            return <>{children}</>
+            return isEmpty ? (empty ?? <ErrorBanner label={label} errorMessage={errorMessage || 'An error occurred'} />)  : <>{children}</> //TODO: implement Empty component
         case LoadStatus.NotFound:
-            return empty ? <>{empty}</> : <p>No {label} to display!</p>
+            return empty ?? <p>No {label} to display!</p>
         case LoadStatus.Loading:
         case LoadStatus.Idle:
             return <Loading />

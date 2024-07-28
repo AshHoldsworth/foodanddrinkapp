@@ -37,7 +37,7 @@ export const ConsumableItem: React.FC<IConsumableItem> = ({ consumable, index })
       <div id="item-stars">
         {stars.map((star: Key | null | undefined) => (
           <img
-            src={require("../../Assets/images/star.png")}
+            src={require("../../assets/images/star.png")}
             alt="search"
             id="star"
             key={star}

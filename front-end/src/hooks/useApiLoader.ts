@@ -4,13 +4,13 @@ import { Global } from "../global";
 import { LoadStatus } from "../Components/loaders/ApiLoader";
 
 export interface IApiLoader<t> {
-    data: t | undefined;
+    data: t;
     status: LoadStatus;
     error: string | null;
 }
 
 export const useApiLoader = <t>(endpoint: string): IApiLoader<t> => {
-    const [data, setData] = useState<t>();
+    const [data, setData] = useState<t>([] as t);
     const [status, setStatus] = useState<LoadStatus>(LoadStatus.Idle);
     const [error, setError] = useState<string | null>(null);
     
@@ -27,6 +27,7 @@ export const useApiLoader = <t>(endpoint: string): IApiLoader<t> => {
 
     useEffect(() => {
         fetchData();
+        // eslint-disable-next-line
     },[]);
 
     return { data, status, error };

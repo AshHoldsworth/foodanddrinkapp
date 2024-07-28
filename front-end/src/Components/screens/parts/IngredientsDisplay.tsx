@@ -1,7 +1,7 @@
 import { IIngredient } from "../../../@Types/IIngredient"
 
 interface IIngredientsDisplay {
-    data: IIngredient[] | undefined
+    data: IIngredient[]
 }
 
 export const IngredientsDisplay: React.FC<IIngredientsDisplay> = ({ data }) => {

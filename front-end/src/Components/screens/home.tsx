@@ -7,7 +7,7 @@ export const Home: React.FC = () => {
         <h2>Welcome to my App!</h2>
         <input type="text" placeholder="Search Food & Drink!" maxLength={40} />
         <img
-          src={require("../../Assets/images/search-black.png")}
+          src={require("../../assets/images/search-black.png")}
           alt="search"
           id="main-search-icon"
         />

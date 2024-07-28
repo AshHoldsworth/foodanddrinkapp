@@ -1,5 +1,5 @@
 interface Ingredients {
-    ingredients: string[];
+    ingredients: Ingredients[];
 }
 
 export const Ingredients: React.FC<Ingredients> = ({ ingredients }) => {

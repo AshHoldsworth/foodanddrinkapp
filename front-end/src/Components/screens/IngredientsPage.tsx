@@ -3,7 +3,7 @@ import { IApiLoader, useApiLoader } from "../../hooks/useApiLoader";
 import { ApiLoader } from "../loaders/ApiLoader";
 import { IngredientsDisplay } from "./parts/IngredientsDisplay";
 
-export const Ingredients: React.FC = () => {
+export const IngredientsPage: React.FC = () => {
   const endpoint: string = "ingredients";
   const response: IApiLoader<IIngredient[]> = useApiLoader<IIngredient[]>(endpoint);
 
@@ -11,7 +11,8 @@ export const Ingredients: React.FC = () => {
     <ApiLoader
       label="Ingredients List"
       loadStatus={response.status}
-      errorMessage={response.error}>
+      errorMessage={response.error}
+      emptyCheck={response.data}>
         <IngredientsDisplay data={response.data} />
     </ApiLoader>
   );
