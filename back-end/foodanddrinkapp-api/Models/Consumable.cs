@@ -24,7 +24,8 @@ namespace FoodAndDrink.Api.Models
                 Cost = req.Cost,
                 Difficulty = req.Difficulty,
                 Speed = req.Speed,
-                Type = req.Type
+                Type = req.Type,
+                Ingredients = req.Ingredients
             };
             
             if (req.Rating > 5) consumable.Rating = 5;
@@ -38,8 +39,6 @@ namespace FoodAndDrink.Api.Models
             
             if (req.Difficulty > 3) consumable.Difficulty = 3;
             else if (req.Difficulty < 1) consumable.Difficulty = 1;
-
-            consumable.Ingredients = req.Ingredients.Select(i => new Ingredient(i)).ToList();
 
             return consumable;
         }

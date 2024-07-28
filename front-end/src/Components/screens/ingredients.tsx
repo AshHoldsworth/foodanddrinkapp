@@ -1,25 +1,20 @@
-import { useEffect, useState } from "react";
 import { IIngredient } from "../../@Types/IIngredient";
-import { Global } from "../../global";
+import { IApiLoader, useApiLoader } from "../../hooks/useApiLoader";
+import { ApiLoader } from "../loaders/ApiLoader";
 
 export const Ingredients: React.FC = () => {
-  const [ingredientsList, setIngredientsList] = useState<IIngredient[]>();
-  const apiClient = Global.apiClient;
-
-  useEffect(() => {
-    apiClient.get("ingredients").then((response: any) => {
-      setIngredientsList(JSON.parse(response));
-    });
-  }, [apiClient]);
+  const endpoint: string = "ingredients";
+  const response: IApiLoader<IIngredient[]> = useApiLoader<IIngredient[]>(endpoint);
 
   return (
-    <>
+    <ApiLoader
+      label="Ingredients List"
+      loadStatus={response.status}
+      errorMessage={response.error}>
       <div className="ingredients-type">
-
-
         <h1>Meat</h1>
-        {ingredientsList
-          ? ingredientsList.map((ingredient: IIngredient, index: number) =>
+        {response.data
+          ? response.data.map((ingredient: IIngredient, index: number) =>
               ingredient.type === "Meat" ? (
                 <p>
                   {ingredient.name}, {ingredient.isHealthyOption === true ? "Healthy" : "Unhealthy"}, {ingredient.macro}
@@ -30,8 +25,8 @@ export const Ingredients: React.FC = () => {
 
 
         <h1>Veg</h1>
-        {ingredientsList
-          ? ingredientsList.map((ingredient: IIngredient, index: number) =>
+        {response.data
+          ? response.data.map((ingredient: IIngredient, index: number) =>
               ingredient.type === "Veg" ? (
                 <p>
                   {ingredient.name}, {ingredient.isHealthyOption === true ? "Healthy" : "Unhealthy"}, {ingredient.macro}
@@ -42,6 +37,6 @@ export const Ingredients: React.FC = () => {
 
 
       </div>
-    </>
+    </ApiLoader>
   );
 };

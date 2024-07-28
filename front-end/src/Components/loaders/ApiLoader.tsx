@@ -26,6 +26,7 @@ export const ApiLoader: React.FC<IApiLoader> = ({ label, size, loadStatus, empty
         case LoadStatus.NotFound:
             return empty ? <>{empty}</> : <p>No {label} to display!</p>
         case LoadStatus.Loading:
+        case LoadStatus.Idle:
             return Loading({})
         case LoadStatus.Error:
         default:

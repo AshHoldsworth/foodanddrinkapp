@@ -8,7 +8,7 @@ namespace FoodAndDrink.Services.Interfaces
         public Task<ServiceResult<List<IngredientDocument>>> GetIngredientList();
         public Task<ServiceResult<IngredientDocument>> GetIngredient(string id);
         public Task<ServiceResult<IngredientDocument>> SubmitIngredient(Ingredient ingredient);
-        public Task<ServiceResult<Ingredient>> SubmitIngredients(List<string> ingredients);
+        public Task<ServiceResult<Ingredient>> SubmitIngredients(List<Ingredient> ingredients);
 	}
 }
 

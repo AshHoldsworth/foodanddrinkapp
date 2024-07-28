@@ -85,7 +85,7 @@ namespace FoodAndDrink.Services
                     return ServiceResult<IngredientDocument>.FailureResult($"Ingredient Service Failure: {result.ErrorMessage}");
                 }
 
-                return ServiceResult<IngredientDocument>.SuccessResult(null);
+                return ServiceResult<IngredientDocument>.SuccessResult();
             }
             catch (Exception ex)
             {
@@ -93,12 +93,11 @@ namespace FoodAndDrink.Services
             }
         }
 
-        public async Task<ServiceResult<Ingredient>> SubmitIngredients(List<string> ingredients)
+        public async Task<ServiceResult<Ingredient>> SubmitIngredients(List<Ingredient> ingredients)
         {
             try
             {
-                var ingredientList = ingredients.Select(i => new Ingredient(i)).ToList();
-                var documents = ingredientList.Select(ToIngredientDocument).ToList();
+                var documents = ingredients.Select(ToIngredientDocument).ToList();
                 var result = await _ingredientRepository.SubmitIngredients(documents);
 
                 if (!result.Success)
@@ -119,6 +118,9 @@ namespace FoodAndDrink.Services
             return new IngredientDocument
             {
                 Name = ingredient.Name,
+                Type = ingredient.Type,
+                IsHealthyOption = ingredient.IsHealthyOption,
+                Macro = ingredient.Macro,
                 DateAdded = DateTime.UtcNow.Date
             };
         }
