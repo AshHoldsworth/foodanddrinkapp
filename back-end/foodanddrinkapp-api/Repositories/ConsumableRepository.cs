@@ -68,7 +68,7 @@ namespace FoodAndDrink.Repositories
                     return RepositoryResponse<ConsumableDocument>.FailureResult($"Consumable {document.Name} already exists");
                 }
 
-				collection.InsertOne(document);
+				await collection.InsertOneAsync(document);
 
 				return RepositoryResponse<ConsumableDocument>.SuccessResult();
 			}

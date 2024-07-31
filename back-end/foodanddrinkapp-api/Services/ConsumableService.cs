@@ -53,7 +53,7 @@ namespace FoodAndDrink
             }
         }
 
-        public async Task<ServiceResult<ConsumableDocument>> SubmitConsumable(Consumable consumable)
+        public async Task<ServiceResult<Consumable>> SubmitConsumable(Consumable consumable)
         {
             try
             {
@@ -62,14 +62,14 @@ namespace FoodAndDrink
 
                 if (!result.Success)
                 {
-                    return ServiceResult<ConsumableDocument>.FailureResult($"Consumable Service Failure: {result.ErrorMessage}");
+                    return ServiceResult<Consumable>.FailureResult($"Consumable Service Failure: {result.ErrorMessage}");
                 }
 
-                return ServiceResult<ConsumableDocument>.SuccessResult();
+                return ServiceResult<Consumable>.SuccessResult();
             }
             catch (Exception ex)
             {
-                return ServiceResult<ConsumableDocument>.FailureResult(ex.Message);
+                return ServiceResult<Consumable>.FailureResult(ex.Message);
             }
         }
 
@@ -79,14 +79,15 @@ namespace FoodAndDrink
             var doc = new ConsumableDocument
             {
                 Name = consumable.Name,
-                Ingredients = consumable.Ingredients.Select(i => i.Name).ToList(),
+                Ingredients = consumable.Ingredients,
                 IsHealthyOption = consumable.IsHealthyOption,
                 DateAdded = DateTime.UtcNow.Date,
                 Rating = consumable.Rating,
                 Cost = consumable.Cost,
                 Speed = consumable.Speed,
                 Difficulty = consumable.Difficulty,
-                Type = consumable.Type
+                Type = consumable.Type,
+                Instructions = consumable.Instructions
             };
 
             return doc;

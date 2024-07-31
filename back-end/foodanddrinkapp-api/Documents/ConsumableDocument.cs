@@ -1,5 +1,4 @@
-﻿using FoodAndDrink.Api.Models;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace FoodAndDrink.Documents
@@ -18,6 +17,7 @@ namespace FoodAndDrink.Documents
         public int? Speed { get; set; }
         public DateTime DateAdded { get; set; }
         public string Type { get; set; }
+        public List<string>? Instructions { get; set; }
     }
 }
 

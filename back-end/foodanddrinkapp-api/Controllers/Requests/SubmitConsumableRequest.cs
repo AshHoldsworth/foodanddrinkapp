@@ -1,6 +1,4 @@
-﻿using FoodAndDrink.Api.Models;
-
-namespace FoodAndDrink.Controllers.Requests
+﻿namespace FoodAndDrink.Controllers.Requests
 {
 	public class SubmitConsumableRequest
 	{
@@ -9,10 +7,10 @@ namespace FoodAndDrink.Controllers.Requests
         public bool IsHealthyOption { get; set; }
         public int Cost { get; set; }
         public string Type { get; set; }
-        public List<Ingredient>? Ingredients { get; set; }
+        public List<string>? Ingredients { get; set; }
         public int? Difficulty { get; set; }
         public int? Speed { get; set; }
-        public bool newIngredients { get; set; }
+        public List<string>? Instructions { get; set; }
     }
 }
 
