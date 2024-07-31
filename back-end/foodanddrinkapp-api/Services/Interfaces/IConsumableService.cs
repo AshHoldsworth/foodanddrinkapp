@@ -5,7 +5,7 @@ namespace FoodAndDrink.Services.Interfaces
 {
 	public interface IConsumableService
 	{
-		public Task<ServiceResult<ConsumableDocument>> SubmitConsumable(Consumable consumable);
+		public Task<ServiceResult<Consumable>> SubmitConsumable(Consumable consumable);
 		public Task<ServiceResult<ConsumableDocument>> GetConsumable(string id);
         public Task<ServiceResult<List<ConsumableDocument>>> GetConsumableList(string type);
     }
