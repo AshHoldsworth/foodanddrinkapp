@@ -37,16 +37,14 @@ export const ConsumablePage: React.FC = () => {
         setIngredientsTab(!ingredientsTab)
     }
 
-    const data = response.data;
-
     return (
         <ApiLoader
             label="Consumable Page"
             loadStatus={response.status}
-            errorMessage={response.error}
+            errorMessage={response.errorMessage}
             emptyCheck={response.data}>
             <ConsumablePageDisplay
-                consumable={data}
+                consumable={response.data}
                 stars={stars}
                 ingredientsTab={ingredientsTab}
                 handleTabs={handleTabs}

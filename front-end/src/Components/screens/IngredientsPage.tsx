@@ -11,7 +11,7 @@ export const IngredientsPage: React.FC = () => {
     <ApiLoader
       label="Ingredients List"
       loadStatus={response.status}
-      errorMessage={response.error}
+      errorMessage={response.errorMessage}
       emptyCheck={response.data}>
         <IngredientsDisplay data={response.data} />
     </ApiLoader>
