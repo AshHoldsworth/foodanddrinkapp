@@ -2,7 +2,8 @@ import { LoadStatus } from "../Components/loaders/ApiLoader";
 
 export interface IApiResponse<t> {
     status: LoadStatus;
-    data: t;
+    data?: t;
+    errorMessage? : string;
 }
 
 export class ApiClient {
@@ -19,14 +20,14 @@ export class ApiClient {
                 case 200:
                     return { status: LoadStatus.Ready, data: await response.text() as t };
                 case 404:
-                    return { status: LoadStatus.NotFound, data: await response.text() as t };
+                    return { status: LoadStatus.NotFound, errorMessage: await response.text() };
                 default:
-                    return { status: LoadStatus.Error, data: await response.text() as t };
+                    return { status: LoadStatus.Error,  errorMessage: await response.text() };
             }
         }
         catch (error) {
             console.error(error);
-            return { status: LoadStatus.Error, data: error as t };
+            return { status: LoadStatus.Error, errorMessage: error as string };
         }
     }
 
