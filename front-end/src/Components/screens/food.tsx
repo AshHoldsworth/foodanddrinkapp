@@ -29,7 +29,7 @@ export const Food: React.FC = () => {
         <ApiLoader
             label="Consumables List"
             loadStatus={response.status}
-            errorMessage={response.error}
+            errorMessage={response.errorMessage}
             emptyCheck={response.data}>
             <FoodDisplay
                 consumablesToDisplay={consumablesToDisplay}
