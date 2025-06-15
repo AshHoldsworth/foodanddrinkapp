@@ -1,6 +1,8 @@
+import { Ingredient } from "./Ingredient"
+
 export type Consumable = {
     name: string
-    ingredients: string[]
+    ingredients: Ingredient[]
     rating: number
     isHealthyOption: boolean
     cost: number

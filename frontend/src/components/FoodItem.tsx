@@ -7,7 +7,7 @@ interface Props {
 
 const FoodItem: FC<Props> = ({ consumable }: Props) => {
     return (
-        <div className="bg-sky-950 text-white p-4 m-2 rounded-lg shadow-lg w-fit">
+        <div className="bg-sky-950 text-white p-4 m-2 rounded-lg shadow-lg grid-cols-1">
             <h3>{consumable.name}</h3>
             <p>Rating: {consumable.rating}</p>
             <p>Healthy Option: {consumable.isHealthyOption ? 'Yes' : 'No'}</p>

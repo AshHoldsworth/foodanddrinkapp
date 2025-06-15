@@ -34,7 +34,12 @@ namespace FoodAndDrink.Api.Controllers
                     Difficulty = 1,
                     Speed = 1,
                     Cost = 1,
-                    Type = "test"
+                    Type = "test",
+                    Ingredients = new List<Ingredient>()
+                    {
+                        new Ingredient("onion", "vegetable", true, null),
+                        new Ingredient("bread", "carb", false, null),
+                    }
                 },
                 new Consumable()
                 {
@@ -44,7 +49,12 @@ namespace FoodAndDrink.Api.Controllers
                     Difficulty = 1,
                     Speed = 1,
                     Cost = 1,
-                    Type = "test"
+                    Type = "test",
+                    Ingredients = new List<Ingredient>()
+                    {
+                        new Ingredient("chicken", "poultry", true, "protein"),
+                        new Ingredient("cheese", "dairy", false, "fat"),
+                    }
                 },
                 new Consumable()
                 {
@@ -54,7 +64,12 @@ namespace FoodAndDrink.Api.Controllers
                     Difficulty = 1,
                     Speed = 1,
                     Cost = 1,
-                    Type = "test"
+                    Type = "test",
+                    Ingredients = new List<Ingredient>()
+                    {
+                        new Ingredient("beef", "meat", true, "protein"),
+                        new Ingredient("pepper", "vegetable", true, null),
+                    }
                 }
             });
             
