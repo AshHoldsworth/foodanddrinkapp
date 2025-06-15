@@ -1,19 +1,20 @@
-import { FC, ReactNode, Suspense } from "react"
+import { FC, ReactNode, Suspense, use } from "react"
 
 interface Props {
     children: React.ReactNode
-    response: Response
+    promise: Promise<any>
     emptyCheck?: boolean
     empty? : ReactNode
 }
 
 export const SuspenseLoader: FC<Props> = async ({
     children,
-    response,
+    promise,
     emptyCheck = false,
     empty = <div className="text-center text-gray-500">No content</div>
 }: Props): Promise<ReactNode> => {
-    let content: ReactNode;
+    let content: ReactNode
+    const response = use(promise)
     switch (response.status) {
         case 200:
             content = !emptyCheck && children;

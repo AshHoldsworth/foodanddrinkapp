@@ -1,22 +1,20 @@
 import { NextPage } from "next"
-import { config } from "@/config"
-import { SuspenseLoader } from "@/api/SuspenseLoader"
+import { FoodList } from "./components/FoodList"
+import { get } from "@/api/get"
 import { Consumable } from "@/types/Consumable"
-import FoodClient from "./FoodClient"
+import { Suspense } from "react"
 
 const FoodPage: NextPage = async () => {
-    const response = await fetch(`${config.baseUrl}/consumables/food`)
-    const data: Consumable[] = await response.json()
-
-    if (!response.ok || data.length === 0) {
-        console.error("Failed to fetch food items or no items found")
-        return <div>No food items available</div>
-    }
-
+    const request: Promise<Consumable[]> = get("/consumables/food")
     return (
-        <SuspenseLoader response={response}>
-            <FoodClient data={data} />
-        </SuspenseLoader>
+        <>
+            <Suspense
+                fallback={
+                    <div className="text-center text-gray-500">Loading...</div>
+                }>
+                <FoodList promise={request} />
+            </Suspense>
+        </>
     )
 }
 

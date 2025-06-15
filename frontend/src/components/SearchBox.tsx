@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { JSX, useState } from "react"
 
 interface Props {
@@ -20,9 +20,11 @@ export const SearchBox = ({ className, onSearch }: Props): JSX.Element => {
                 placeholder="Enter food name or ingredient..."
                 className="p-2 border border-gray-300 rounded-lg w-100 col-span-4"
                 value={inputValue}
-                onChange={event => onChange(event)}
+                onChange={(event) => onChange(event)}
             />
-            <button className="ml-2 p-2 bg-sky-950 text-white rounded-lg col-span-1" onClick={() => onSearch(inputValue)}>
+            <button
+                className="ml-2 p-2 bg-sky-950 text-white rounded-lg col-span-1"
+                onClick={() => onSearch(inputValue)}>
                 Search
             </button>
         </div>
