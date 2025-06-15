@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using FoodAndDrink.Api.Models;
+using Microsoft.AspNetCore.Mvc;
 using FoodAndDrink.Services.Interfaces;
 using FoodAndDrink.Controllers.Requests;
 
@@ -21,6 +23,41 @@ namespace FoodAndDrink.Api.Controllers
         [Route("/consumables/{type}")]
         public async Task<IActionResult> GetConsumableList(string type)
         {
+
+            return Ok(new List<Consumable>()
+            {
+                new Consumable()
+                {
+                    Name = "test",
+                    Rating = 1,
+                    IsHealthyOption = true,
+                    Difficulty = 1,
+                    Speed = 1,
+                    Cost = 1,
+                    Type = "test"
+                },
+                new Consumable()
+                {
+                    Name = "test2",
+                    Rating = 1,
+                    IsHealthyOption = true,
+                    Difficulty = 1,
+                    Speed = 1,
+                    Cost = 1,
+                    Type = "test"
+                },
+                new Consumable()
+                {
+                    Name = "test3",
+                    Rating = 1,
+                    IsHealthyOption = true,
+                    Difficulty = 1,
+                    Speed = 1,
+                    Cost = 1,
+                    Type = "test"
+                }
+            });
+            
             var result = await _consumableService.GetConsumableList(type);
 
             if (result.Success == false)
@@ -28,6 +65,8 @@ namespace FoodAndDrink.Api.Controllers
                 Console.WriteLine(result.ErrorMessage);
                 return BadRequest(result.ErrorMessage);
             }
+            
+            if (result.Data?.Count == 0) return NoContent();
  
             return Ok(result.Data);
         }

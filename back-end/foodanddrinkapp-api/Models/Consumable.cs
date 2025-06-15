@@ -13,7 +13,7 @@ namespace FoodAndDrink.Api.Models
         public int? Difficulty { get; set; }
         public int? Speed { get; set; }
         public string? Course { get; set; }
-
+        
         public static implicit operator Consumable(SubmitConsumableRequest req)
         {
             var consumable = new Consumable
