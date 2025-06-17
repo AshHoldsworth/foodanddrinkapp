@@ -9,7 +9,8 @@ export const Food: React.FC = () => {
     const [healthyOption, setHealthyOption] = useState<boolean>(false)
 
     const endpoint: string = "consumables/food"
-    const response: IApiLoader<IConsumable[]> = useApiLoader<IConsumable[]>(endpoint);
+    const response: IApiLoader<IConsumable[]> =
+        useApiLoader<IConsumable[]>(endpoint)
 
     const handleHealthyOption = () => setHealthyOption(!healthyOption)
 
@@ -26,16 +27,18 @@ export const Food: React.FC = () => {
     }
 
     return (
-        <ApiLoader
-            label="Consumables List"
-            loadStatus={response.status}
-            errorMessage={response.error}
-            emptyCheck={response.data}>
-            <FoodDisplay
-                consumablesToDisplay={consumablesToDisplay}
-                healthyOption={healthyOption}
-                handleHealthyOption={handleHealthyOption}
-            />
-        </ApiLoader>
+        <>
+            <ApiLoader
+                label="Consumables List"
+                loadStatus={response.status}
+                errorMessage={response.error}
+                emptyCheck={response.data}>
+                <FoodDisplay
+                    consumablesToDisplay={consumablesToDisplay}
+                    healthyOption={healthyOption}
+                    handleHealthyOption={handleHealthyOption}
+                />
+            </ApiLoader>
+        </>
     )
 }

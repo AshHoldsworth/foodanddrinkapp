@@ -1,0 +1,49 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal {
+    position: fixed;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 80vw;
+    height: 80vh;
+    background-color: var(--myBlue);
+    display: grid;
+    grid-template-columns: 5;
+    grid-template-rows: 10;
+    border-radius: 5%;
+}
+
+.modal-header {
+    grid-column: 1 / span 5;
+    grid-row: 1;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+}
+
+.modal-body {
+    grid-column: 1 / span 5;
+    grid-row: 2 / span 6;
+    color: white;
+    margin: 10px;
+}
+
+.modal-footer {
+    grid-column: 1 / span 5;
+    grid-row: 10 / span 1;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}

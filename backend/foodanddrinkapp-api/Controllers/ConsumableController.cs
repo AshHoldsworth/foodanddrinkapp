@@ -1,5 +1,4 @@
-﻿using System.Net;
-using FoodAndDrink.Api.Models;
+﻿using FoodAndDrink.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using FoodAndDrink.Services.Interfaces;
 using FoodAndDrink.Controllers.Requests;

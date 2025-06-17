@@ -40,3 +40,35 @@ a:hover {
     width: 100vw;
     z-index: 1;
 }
+
+.btn {
+    background-color: var(--myWhite);
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    color: var(--myBlue);
+    border-radius: 5%;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    height: fit-content
+}
+.btn:hover {
+    background-color: var(--myGrey);
+}
+
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: var(--myBlue);
+    color: var(--myWhite);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border: none;
+    font-size: 2rem;
+}
+.floating-btn:hover {
+    background-color: var(--myBlueHover);
+}
